@@ -1,0 +1,969 @@
+```html
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CommunityHub Nigeria Marketplace | Buy, Sell & Discover</title>
+    <meta name="description" content="Join organized WhatsApp and Telegram marketplace communities connecting buyers, sellers, businesses, and customers across Nigeria by location.">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Tailwind CSS (via CDN for single-file requirement) -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Custom Tailwind Configuration -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                    colors: {
+                        primary: {
+                            50: '#f0fdf4',
+                            100: '#dcfce7',
+                            500: '#22c55e',
+                            600: '#16a34a',
+                            700: '#15803d',
+                            800: '#166534',
+                            900: '#14532d',
+                        },
+                        dark: '#111827',
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <style>
+        /* Custom Styles for extra polish */
+        .glass-card {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        .gradient-text {
+            background: linear-gradient(135deg, #15803d 0%, #22c55e 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .hover-lift {
+            transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+        }
+        .hover-lift:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.1);
+        }
+        .blob-bg {
+            position: absolute;
+            filter: blur(80px);
+            z-index: -1;
+            opacity: 0.5;
+        }
+    </style>
+</head>
+<body class="font-sans text-gray-800 bg-gray-50 antialiased overflow-x-hidden">
+
+    <!-- NAVIGATION -->
+    <nav class="fixed w-full z-50 bg-white/90 backdrop-blur-md border-b border-gray-100 shadow-sm transition-all duration-300" id="navbar">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-20">
+                <!-- Logo -->
+                <div class="flex-shrink-0 flex items-center gap-2 cursor-pointer" onclick="window.scrollTo(0,0)">
+                    <div class="w-10 h-10 bg-primary-600 rounded-lg flex items-center justify-center text-white font-bold text-xl shadow-lg shadow-primary-500/30">
+                        <i class="fa-solid fa-store"></i>
+                    </div>
+                    <span class="font-bold text-xl tracking-tight text-dark">CommunityHub<span class="text-primary-600">NG</span></span>
+                </div>
+                
+                <!-- Desktop Menu -->
+                <div class="hidden lg:flex items-center space-x-8">
+                    <a href="#" class="text-gray-600 hover:text-primary-600 font-medium transition-colors">Home</a>
+                    <a href="#zones" class="text-gray-600 hover:text-primary-600 font-medium transition-colors">Marketplace Zones</a>
+                    <a href="#categories" class="text-gray-600 hover:text-primary-600 font-medium transition-colors">Categories</a>
+                    <a href="#featured" class="text-gray-600 hover:text-primary-600 font-medium transition-colors">Businesses</a>
+                    <a href="#promo" class="text-gray-600 hover:text-primary-600 font-medium transition-colors">Advertise</a>
+                    <a href="#promo" class="bg-primary-600 hover:bg-primary-700 text-white px-5 py-2.5 rounded-full font-medium transition-all shadow-md shadow-primary-600/20 transform hover:-translate-y-0.5">Submit Listing</a>
+                </div>
+
+                <!-- Mobile menu button -->
+                <div class="lg:hidden flex items-center">
+                    <button id="mobile-menu-btn" class="text-gray-600 hover:text-primary-600 focus:outline-none p-2">
+                        <i class="fa-solid fa-bars text-2xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile Menu Panel -->
+        <div id="mobile-menu" class="hidden lg:hidden bg-white border-t border-gray-100 absolute w-full shadow-lg">
+            <div class="px-4 pt-2 pb-6 space-y-1">
+                <a href="#" class="block px-3 py-3 rounded-md text-base font-medium text-gray-700 hover:text-primary-600 hover:bg-primary-50">Home</a>
+                <a href="#zones" class="block px-3 py-3 rounded-md text-base font-medium text-gray-700 hover:text-primary-600 hover:bg-primary-50">Marketplace Zones</a>
+                <a href="#categories" class="block px-3 py-3 rounded-md text-base font-medium text-gray-700 hover:text-primary-600 hover:bg-primary-50">Categories</a>
+                <a href="#featured" class="block px-3 py-3 rounded-md text-base font-medium text-gray-700 hover:text-primary-600 hover:bg-primary-50">Businesses</a>
+                <a href="#promo" class="block px-3 py-3 rounded-md text-base font-medium text-gray-700 hover:text-primary-600 hover:bg-primary-50">Advertise</a>
+                <div class="mt-4 px-3">
+                    <a href="#promo" class="block w-full text-center bg-primary-600 hover:bg-primary-700 text-white px-5 py-3 rounded-lg font-medium shadow-md">Submit Listing</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- HERO SECTION -->
+    <section class="relative pt-32 pb-20 lg:pt-40 lg:pb-28 overflow-hidden bg-white">
+        <!-- Background decorative blobs -->
+        <div class="blob-bg bg-primary-200 w-96 h-96 rounded-full top-0 left-0 -translate-x-1/2 -translate-y-1/2"></div>
+        <div class="blob-bg bg-blue-100 w-96 h-96 rounded-full bottom-0 right-0 translate-x-1/3 translate-y-1/3"></div>
+        
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                <!-- Hero Text -->
+                <div class="text-center lg:text-left">
+                    <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-primary-50 text-primary-700 text-sm font-semibold mb-6 border border-primary-100">
+                        <span class="relative flex h-2.5 w-2.5">
+                          <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary-400 opacity-75"></span>
+                          <span class="relative inline-flex rounded-full h-2.5 w-2.5 bg-primary-500"></span>
+                        </span>
+                        Connecting 36 States & FCT
+                    </div>
+                    <h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-dark mb-6 leading-tight">
+                        Buy, Sell and Discover <br class="hidden lg:block"/>
+                        <span class="gradient-text">Opportunities</span> <br class="hidden lg:block"/> 
+                        Across Nigeria
+                    </h1>
+                    <p class="text-lg sm:text-xl text-gray-600 mb-8 max-w-2xl mx-auto lg:mx-0">
+                        Join organized WhatsApp and Telegram marketplace communities connecting buyers, sellers, businesses, and customers exclusively by location.
+                    </p>
+                    <div class="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
+                        <a href="#zones" class="inline-flex justify-center items-center gap-2 bg-primary-600 hover:bg-primary-700 text-white px-8 py-3.5 rounded-full font-semibold text-lg transition-all shadow-lg shadow-primary-600/30 transform hover:-translate-y-1">
+                            Join Marketplace
+                            <i class="fa-solid fa-arrow-right"></i>
+                        </a>
+                        <a href="#promo" class="inline-flex justify-center items-center gap-2 bg-white hover:bg-gray-50 text-dark border-2 border-gray-200 px-8 py-3.5 rounded-full font-semibold text-lg transition-all hover:border-gray-300">
+                            Sell Your Products
+                            <i class="fa-solid fa-store"></i>
+                        </a>
+                    </div>
+                    <div class="mt-8 flex items-center justify-center lg:justify-start gap-4 text-sm text-gray-500">
+                        <div class="flex -space-x-2">
+                            <img class="w-8 h-8 rounded-full border-2 border-white" src="https://i.pravatar.cc/100?img=1" alt="User">
+                            <img class="w-8 h-8 rounded-full border-2 border-white" src="https://i.pravatar.cc/100?img=2" alt="User">
+                            <img class="w-8 h-8 rounded-full border-2 border-white" src="https://i.pravatar.cc/100?img=3" alt="User">
+                            <div class="w-8 h-8 rounded-full border-2 border-white bg-gray-100 flex items-center justify-center text-xs font-bold text-gray-600">+10k</div>
+                        </div>
+                        <p>Members already trading</p>
+                    </div>
+                </div>
+
+                <!-- Hero Visual -->
+                <div class="relative w-full h-[400px] sm:h-[500px] lg:h-[600px] rounded-2xl flex items-center justify-center">
+                    <!-- Abstract Network Representation -->
+                    <div class="absolute inset-0 bg-gradient-to-br from-primary-50 to-blue-50 rounded-3xl transform rotate-3 scale-105 border border-white shadow-xl"></div>
+                    <div class="absolute inset-0 bg-white rounded-3xl shadow-2xl overflow-hidden border border-gray-100 flex flex-col items-center justify-center relative p-8">
+                        
+                        <!-- Map/Network Mockup -->
+                        <div class="relative w-full h-full max-w-md mx-auto">
+                            <!-- Central Node (Nigeria) -->
+                            <div class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-24 h-24 bg-primary-600 rounded-full flex items-center justify-center shadow-lg shadow-primary-500/40 z-20">
+                                <i class="fa-solid fa-earth-africa text-white text-4xl"></i>
+                            </div>
+                            
+                            <!-- WhatsApp Node -->
+                            <div class="absolute top-[10%] left-[10%] w-16 h-16 bg-[#25D366] rounded-full flex items-center justify-center shadow-lg z-20 animate-bounce" style="animation-duration: 3s;">
+                                <i class="fa-brands fa-whatsapp text-white text-3xl"></i>
+                            </div>
+
+                            <!-- Telegram Node -->
+                            <div class="absolute bottom-[15%] right-[10%] w-16 h-16 bg-[#0088cc] rounded-full flex items-center justify-center shadow-lg z-20 animate-bounce" style="animation-duration: 4s; animation-delay: 1s;">
+                                <i class="fa-brands fa-telegram text-white text-3xl"></i>
+                            </div>
+
+                            <!-- Store Nodes -->
+                            <div class="absolute top-[20%] right-[15%] w-12 h-12 bg-orange-500 rounded-full flex items-center justify-center shadow-md z-20">
+                                <i class="fa-solid fa-bag-shopping text-white"></i>
+                            </div>
+                            <div class="absolute bottom-[20%] left-[20%] w-14 h-14 bg-purple-500 rounded-full flex items-center justify-center shadow-md z-20">
+                                <i class="fa-solid fa-bullhorn text-white text-xl"></i>
+                            </div>
+
+                            <!-- Connecting Lines (SVG) -->
+                            <svg class="absolute inset-0 w-full h-full z-10" style="pointer-events: none;">
+                                <path d="M 100 100 Q 200 150 250 250" stroke="#e5e7eb" stroke-width="3" fill="none" stroke-dasharray="5,5" />
+                                <path d="M 350 120 Q 300 200 250 250" stroke="#e5e7eb" stroke-width="3" fill="none" stroke-dasharray="5,5" />
+                                <path d="M 120 350 Q 180 300 250 250" stroke="#e5e7eb" stroke-width="3" fill="none" stroke-dasharray="5,5" />
+                                <path d="M 350 400 Q 300 320 250 250" stroke="#e5e7eb" stroke-width="3" fill="none" stroke-dasharray="5,5" />
+                            </svg>
+                            
+                            <!-- Floating notification mockups -->
+                            <div class="absolute top-1/4 right-[-10%] bg-white rounded-lg shadow-lg p-3 flex items-center gap-3 border border-gray-100 z-30 transform rotate-2">
+                                <div class="w-8 h-8 bg-green-100 rounded-full flex items-center justify-center text-green-600">
+                                    <i class="fa-solid fa-check"></i>
+                                </div>
+                                <div>
+                                    <p class="text-xs font-bold">New Sale: Lagos Hub</p>
+                                    <p class="text-[10px] text-gray-500">2 mins ago</p>
+                                </div>
+                            </div>
+
+                            <div class="absolute bottom-1/3 left-[-5%] bg-white rounded-lg shadow-lg p-3 flex items-center gap-3 border border-gray-100 z-30 transform -rotate-3">
+                                <div class="w-8 h-8 bg-blue-100 rounded-full flex items-center justify-center text-blue-600">
+                                    <i class="fa-solid fa-user-plus"></i>
+                                </div>
+                                <div>
+                                    <p class="text-xs font-bold">Abuja Group Joined</p>
+                                    <p class="text-[10px] text-gray-500">Just now</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="absolute bottom-4 text-center text-sm font-medium text-gray-400">Powered by WhatsApp & Telegram</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- HOW IT WORKS SECTION -->
+    <section class="py-16 bg-gray-50 border-t border-b border-gray-200" id="how-it-works">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold text-dark mb-4">How It Works</h2>
+                <p class="text-gray-600 max-w-2xl mx-auto">Getting started is completely free. Join your community and start trading in minutes.</p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 relative">
+                <!-- Connecting Line Desktop -->
+                <div class="hidden md:block absolute top-12 left-[16%] right-[16%] h-0.5 bg-gray-200 z-0"></div>
+
+                <div class="relative z-10 text-center hover-lift bg-white p-6 rounded-2xl shadow-sm border border-gray-100">
+                    <div class="w-20 h-20 mx-auto bg-primary-100 rounded-2xl flex items-center justify-center text-primary-600 text-3xl font-bold mb-6 rotate-3">
+                        1
+                    </div>
+                    <h3 class="text-xl font-bold text-dark mb-2">Choose Location</h3>
+                    <p class="text-gray-600 text-sm">Select your Nigerian geographical zone and locate your specific state.</p>
+                </div>
+
+                <div class="relative z-10 text-center hover-lift bg-white p-6 rounded-2xl shadow-sm border border-gray-100">
+                    <div class="w-20 h-20 mx-auto bg-blue-100 rounded-2xl flex items-center justify-center text-blue-600 text-3xl font-bold mb-6 -rotate-3">
+                        2
+                    </div>
+                    <h3 class="text-xl font-bold text-dark mb-2">Join Group</h3>
+                    <p class="text-gray-600 text-sm">Click to securely join your state's verified WhatsApp or Telegram marketplace.</p>
+                </div>
+
+                <div class="relative z-10 text-center hover-lift bg-white p-6 rounded-2xl shadow-sm border border-gray-100">
+                    <div class="w-20 h-20 mx-auto bg-orange-100 rounded-2xl flex items-center justify-center text-orange-600 text-3xl font-bold mb-6 rotate-3">
+                        3
+                    </div>
+                    <h3 class="text-xl font-bold text-dark mb-2">Trade & Connect</h3>
+                    <p class="text-gray-600 text-sm">Post products, discover local opportunities, and connect directly with buyers.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- WHY JOIN SECTION -->
+    <section class="py-20 bg-white" id="why-join">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl lg:text-4xl font-bold text-dark mb-4">Why Join CommunityHub Marketplace?</h2>
+                <div class="w-24 h-1.5 bg-primary-500 mx-auto rounded-full"></div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <!-- Card 1 -->
+                <div class="p-8 rounded-2xl bg-gray-50 border border-gray-100 hover-lift text-center sm:text-left transition-colors hover:border-primary-200">
+                    <div class="w-14 h-14 bg-white rounded-xl shadow-sm flex items-center justify-center text-primary-600 text-2xl mb-6 mx-auto sm:mx-0">
+                        <i class="fa-solid fa-location-dot"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-dark mb-3">Local Marketplace</h3>
+                    <p class="text-gray-600 leading-relaxed text-sm">Find products, services, and trusted vendors right in your state and city.</p>
+                </div>
+
+                <!-- Card 2 -->
+                <div class="p-8 rounded-2xl bg-gray-50 border border-gray-100 hover-lift text-center sm:text-left transition-colors hover:border-primary-200">
+                    <div class="w-14 h-14 bg-white rounded-xl shadow-sm flex items-center justify-center text-blue-600 text-2xl mb-6 mx-auto sm:mx-0">
+                        <i class="fa-solid fa-chart-line"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-dark mb-3">Business Growth</h3>
+                    <p class="text-gray-600 leading-relaxed text-sm">Promote your business directly to targeted, localized customers ready to buy.</p>
+                </div>
+
+                <!-- Card 3 -->
+                <div class="p-8 rounded-2xl bg-gray-50 border border-gray-100 hover-lift text-center sm:text-left transition-colors hover:border-primary-200">
+                    <div class="w-14 h-14 bg-white rounded-xl shadow-sm flex items-center justify-center text-green-600 text-2xl mb-6 mx-auto sm:mx-0">
+                        <i class="fa-solid fa-shield-halved"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-dark mb-3">Trusted Communities</h3>
+                    <p class="text-gray-600 leading-relaxed text-sm">Join organized, well-moderated WhatsApp and Telegram marketplace groups.</p>
+                </div>
+
+                <!-- Card 4 -->
+                <div class="p-8 rounded-2xl bg-gray-50 border border-gray-100 hover-lift text-center sm:text-left transition-colors hover:border-primary-200">
+                    <div class="w-14 h-14 bg-white rounded-xl shadow-sm flex items-center justify-center text-orange-600 text-2xl mb-6 mx-auto sm:mx-0">
+                        <i class="fa-solid fa-lightbulb"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-dark mb-3">Opportunities</h3>
+                    <p class="text-gray-600 leading-relaxed text-sm">Discover local jobs, flash deals, real estate, and valuable partnerships.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- MARKETPLACE ZONES SECTION -->
+    <section class="py-20 bg-dark" id="zones">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <span class="text-primary-500 font-semibold tracking-wider uppercase text-sm mb-2 block">Network Directory</span>
+                <h2 class="text-3xl lg:text-4xl font-bold text-white mb-6">Choose Your Marketplace Zone</h2>
+                <p class="text-gray-400 max-w-2xl mx-auto">Select your geopolitical zone below to find and join the official marketplace group for your state. Connect with buyers and sellers locally.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                
+                <!-- SOUTH WEST -->
+                <div class="bg-gray-800 rounded-2xl border border-gray-700 overflow-hidden flex flex-col h-full hover:border-primary-500 transition-colors">
+                    <div class="bg-gray-900/50 p-6 border-b border-gray-700 flex items-center gap-4">
+                        <div class="w-12 h-12 bg-primary-900/50 text-primary-400 rounded-lg flex items-center justify-center text-xl">
+                            <i class="fa-solid fa-map-location-dot"></i>
+                        </div>
+                        <div>
+                            <h3 class="text-xl font-bold text-white">South West</h3>
+                            <p class="text-gray-400 text-xs mt-1">6 State Marketplaces</p>
+                        </div>
+                    </div>
+                    <div class="p-6 flex-grow">
+                        <ul class="space-y-3">
+                            <li class="flex items-center justify-between p-3 rounded-lg bg-gray-700/30 hover:bg-gray-700 transition-colors">
+                                <span class="text-gray-200 font-medium">Lagos</span>
+                                <button onclick="joinGroup('Lagos')" class="text-xs bg-primary-600 hover:bg-primary-500 text-white px-3 py-1.5 rounded-md font-semibold transition-colors">Join <i class="fa-brands fa-whatsapp ml-1"></i></button>
+                            </li>
+                            <li class="flex items-center justify-between p-3 rounded-lg bg-gray-700/30 hover:bg-gray-700 transition-colors">
+                                <span class="text-gray-200 font-medium">Oyo</span>
+                                <button onclick="joinGroup('Oyo')" class="text-xs bg-primary-600 hover:bg-primary-500 text-white px-3 py-1.5 rounded-md font-semibold transition-colors">Join <i class="fa-brands fa-whatsapp ml-1"></i></button>
+                            </li>
+                            <li class="flex items-center justify-between p-3 rounded-lg bg-gray-700/30 hover:bg-gray-700 transition-colors">
+                                <span class="text-gray-200 font-medium">Ogun</span>
+                                <button onclick="joinGroup('Ogun')" class="text-xs bg-primary-600 hover:bg-primary-500 text-white px-3 py-1.5 rounded-md font-semibold transition-colors">Join <i class="fa-brands fa-whatsapp ml-1"></i></button>
+                            </li>
+                            <li class="flex items-center justify-between p-3 rounded-lg bg-gray-700/30 hover:bg-gray-700 transition-colors">
+                                <span class="text-gray-200 font-medium">Osun</span>
+                                <button onclick="joinGroup('Osun')" class="text-xs bg-primary-600 hover:bg-primary-500 text-white px-3 py-1.5 rounded-md font-semibold transition-colors">Join <i class="fa-brands fa-whatsapp ml-1"></i></button>
+                            </li>
+                            <li class="flex items-center justify-between p-3 rounded-lg bg-gray-700/30 hover:bg-gray-700 transition-colors">
+                                <span class="text-gray-200 font-medium">Ondo</span>
+                                <button onclick="joinGroup('Ondo')" class="text-xs bg-primary-600 hover:bg-primary-500 text-white px-3 py-1.5 rounded-md font-semibold transition-colors">Join <i class="fa-brands fa-whatsapp ml-1"></i></button>
+                            </li>
+                            <li class="flex items-center justify-between p-3 rounded-lg bg-gray-700/30 hover:bg-gray-700 transition-colors">
+                                <span class="text-gray-200 font-medium">Ekiti</span>
+                                <button onclick="joinGroup('Ekiti')" class="text-xs bg-primary-600 hover:bg-primary-500 text-white px-3 py-1.5 rounded-md font-semibold transition-colors">Join <i class="fa-brands fa-whatsapp ml-1"></i></button>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- SOUTH EAST -->
+                <div class="bg-gray-800 rounded-2xl border border-gray-700 overflow-hidden flex flex-col h-full hover:border-blue-500 transition-colors">
+                    <div class="bg-gray-900/50 p-6 border-b border-gray-700 flex items-center gap-4">
+                        <div class="w-12 h-12 bg-blue-900/50 text-blue-400 rounded-lg flex items-center justify-center text-xl">
+                            <i class="fa-solid fa-map"></i>
+                        </div>
+                        <div>
+                            <h3 class="text-xl font-bold text-white">South East</h3>
+                            <p class="text-gray-400 text-xs mt-1">5 State Marketplaces</p>
+                        </div>
+                    </div>
+                    <div class="p-6 flex-grow">
+                        <ul class="space-y-3">
+                            <li class="flex items-center justify-between p-3 rounded-lg bg-gray-700/30 hover:bg-gray-700 transition-colors">
+                                <span class="text-gray-200 font-medium">Abia</span>
+                                <button onclick="joinGroup('Abia')" class="text-xs bg-primary-600 hover:bg-primary-500 text-white px-3 py-1.5 rounded-md font-semibold transition-colors">Join <i class="fa-brands fa-whatsapp ml-1"></i></button>
+                            </li>
+                            <li class="flex items-center justify-between p-3 rounded-lg bg-gray-700/30 hover:bg-gray-700 transition-colors">
+                                <span class="text-gray-200 font-medium">Anambra</span>
+                                <button onclick="joinGroup('Anambra')" class="text-xs bg-primary-600 hover:bg-primary-500 text-white px-3 py-1.5 rounded-md font-semibold transition-colors">Join <i class="fa-brands fa-whatsapp ml-1"></i></button>
+                            </li>
+                            <li class="flex items-center justify-between p-3 rounded-lg bg-gray-700/30 hover:bg-gray-700 transition-colors">
+                                <span class="text-gray-200 font-medium">Ebonyi</span>
+                                <button onclick="joinGroup('Ebonyi')" class="text-xs bg-primary-600 hover:bg-primary-500 text-white px-3 py-1.5 rounded-md font-semibold transition-colors">Join <i class="fa-brands fa-whatsapp ml-1"></i></button>
+                            </li>
+                            <li class="flex items-center justify-between p-3 rounded-lg bg-gray-700/30 hover:bg-gray-700 transition-colors">
+                                <span class="text-gray-200 font-medium">Enugu</span>
+                                <button onclick="joinGroup('Enugu')" class="text-xs bg-primary-600 hover:bg-primary-500 text-white px-3 py-1.5 rounded-md font-semibold transition-colors">Join <i class="fa-brands fa-whatsapp ml-1"></i></button>
+                            </li>
+                            <li class="flex items-center justify-between p-3 rounded-lg bg-gray-700/30 hover:bg-gray-700 transition-colors">
+                                <span class="text-gray-200 font-medium">Imo</span>
+                                <button onclick="joinGroup('Imo')" class="text-xs bg-primary-600 hover:bg-primary-500 text-white px-3 py-1.5 rounded-md font-semibold transition-colors">Join <i class="fa-brands fa-whatsapp ml-1"></i></button>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- SOUTH SOUTH -->
+                <div class="bg-gray-800 rounded-2xl border border-gray-700 overflow-hidden flex flex-col h-full hover:border-orange-500 transition-colors">
+                    <div class="bg-gray-900/50 p-6 border-b border-gray-700 flex items-center gap-4">
+                        <div class="w-12 h-12 bg-orange-900/50 text-orange-400 rounded-lg flex items-center justify-center text-xl">
+                            <i class="fa-solid fa-water"></i>
+                        </div>
+                        <div>
+                            <h3 class="text-xl font-bold text-white">South South</h3>
+                            <p class="text-gray-400 text-xs mt-1">6 State Marketplaces</p>
+                        </div>
+                    </div>
+                    <div class="p-6 flex-grow">
+                        <ul class="space-y-3">
+                            <li class="flex items-center justify-between p-3 rounded-lg bg-gray-700/30 hover:bg-gray-700 transition-colors">
+                                <span class="text-gray-200 font-medium">Akwa Ibom</span>
+                                <button onclick="joinGroup('Akwa Ibom')" class="text-xs bg-primary-600 hover:bg-primary-500 text-white px-3 py-1.5 rounded-md font-semibold transition-colors">Join <i class="fa-brands fa-whatsapp ml-1"></i></button>
+                            </li>
+                            <li class="flex items-center justify-between p-3 rounded-lg bg-gray-700/30 hover:bg-gray-700 transition-colors">
+                                <span class="text-gray-200 font-medium">Bayelsa</span>
+                                <button onclick="joinGroup('Bayelsa')" class="text-xs bg-primary-600 hover:bg-primary-500 text-white px-3 py-1.5 rounded-md font-semibold transition-colors">Join <i class="fa-brands fa-whatsapp ml-1"></i></button>
+                            </li>
+                            <li class="flex items-center justify-between p-3 rounded-lg bg-gray-700/30 hover:bg-gray-700 transition-colors">
+                                <span class="text-gray-200 font-medium">Cross River</span>
+                                <button onclick="joinGroup('Cross River')" class="text-xs bg-primary-600 hover:bg-primary-500 text-white px-3 py-1.5 rounded-md font-semibold transition-colors">Join <i class="fa-brands fa-whatsapp ml-1"></i></button>
+                            </li>
+                            <li class="flex items-center justify-between p-3 rounded-lg bg-gray-700/30 hover:bg-gray-700 transition-colors">
+                                <span class="text-gray-200 font-medium">Delta</span>
+                                <button onclick="joinGroup('Delta')" class="text-xs bg-primary-600 hover:bg-primary-500 text-white px-3 py-1.5 rounded-md font-semibold transition-colors">Join <i class="fa-brands fa-whatsapp ml-1"></i></button>
+                            </li>
+                            <li class="flex items-center justify-between p-3 rounded-lg bg-gray-700/30 hover:bg-gray-700 transition-colors">
+                                <span class="text-gray-200 font-medium">Edo</span>
+                                <button onclick="joinGroup('Edo')" class="text-xs bg-primary-600 hover:bg-primary-500 text-white px-3 py-1.5 rounded-md font-semibold transition-colors">Join <i class="fa-brands fa-whatsapp ml-1"></i></button>
+                            </li>
+                            <li class="flex items-center justify-between p-3 rounded-lg bg-gray-700/30 hover:bg-gray-700 transition-colors">
+                                <span class="text-gray-200 font-medium">Rivers</span>
+                                <button onclick="joinGroup('Rivers')" class="text-xs bg-primary-600 hover:bg-primary-500 text-white px-3 py-1.5 rounded-md font-semibold transition-colors">Join <i class="fa-brands fa-whatsapp ml-1"></i></button>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- NORTH CENTRAL -->
+                <div class="bg-gray-800 rounded-2xl border border-gray-700 overflow-hidden flex flex-col h-full hover:border-purple-500 transition-colors">
+                    <div class="bg-gray-900/50 p-6 border-b border-gray-700 flex items-center gap-4">
+                        <div class="w-12 h-12 bg-purple-900/50 text-purple-400 rounded-lg flex items-center justify-center text-xl">
+                            <i class="fa-solid fa-mountain"></i>
+                        </div>
+                        <div>
+                            <h3 class="text-xl font-bold text-white">North Central</h3>
+                            <p class="text-gray-400 text-xs mt-1">7 Marketplaces (Inc. FCT)</p>
+                        </div>
+                    </div>
+                    <div class="p-6 flex-grow">
+                        <ul class="space-y-3">
+                            <li class="flex items-center justify-between p-3 rounded-lg bg-gray-700/30 hover:bg-gray-700 transition-colors">
+                                <span class="text-gray-200 font-medium">Abuja (FCT)</span>
+                                <button onclick="joinGroup('Abuja')" class="text-xs bg-primary-600 hover:bg-primary-500 text-white px-3 py-1.5 rounded-md font-semibold transition-colors">Join <i class="fa-brands fa-whatsapp ml-1"></i></button>
+                            </li>
+                            <li class="flex items-center justify-between p-3 rounded-lg bg-gray-700/30 hover:bg-gray-700 transition-colors">
+                                <span class="text-gray-200 font-medium">Benue</span>
+                                <button onclick="joinGroup('Benue')" class="text-xs bg-primary-600 hover:bg-primary-500 text-white px-3 py-1.5 rounded-md font-semibold transition-colors">Join <i class="fa-brands fa-whatsapp ml-1"></i></button>
+                            </li>
+                            <li class="flex items-center justify-between p-3 rounded-lg bg-gray-700/30 hover:bg-gray-700 transition-colors">
+                                <span class="text-gray-200 font-medium">Kogi</span>
+                                <button onclick="joinGroup('Kogi')" class="text-xs bg-primary-600 hover:bg-primary-500 text-white px-3 py-1.5 rounded-md font-semibold transition-colors">Join <i class="fa-brands fa-whatsapp ml-1"></i></button>
+                            </li>
+                            <li class="flex items-center justify-between p-3 rounded-lg bg-gray-700/30 hover:bg-gray-700 transition-colors">
+                                <span class="text-gray-200 font-medium">Kwara</span>
+                                <button onclick="joinGroup('Kwara')" class="text-xs bg-primary-600 hover:bg-primary-500 text-white px-3 py-1.5 rounded-md font-semibold transition-colors">Join <i class="fa-brands fa-whatsapp ml-1"></i></button>
+                            </li>
+                            <li class="flex items-center justify-between p-3 rounded-lg bg-gray-700/30 hover:bg-gray-700 transition-colors">
+                                <span class="text-gray-200 font-medium">Nasarawa</span>
+                                <button onclick="joinGroup('Nasarawa')" class="text-xs bg-primary-600 hover:bg-primary-500 text-white px-3 py-1.5 rounded-md font-semibold transition-colors">Join <i class="fa-brands fa-whatsapp ml-1"></i></button>
+                            </li>
+                            <li class="flex items-center justify-between p-3 rounded-lg bg-gray-700/30 hover:bg-gray-700 transition-colors">
+                                <span class="text-gray-200 font-medium">Niger</span>
+                                <button onclick="joinGroup('Niger')" class="text-xs bg-primary-600 hover:bg-primary-500 text-white px-3 py-1.5 rounded-md font-semibold transition-colors">Join <i class="fa-brands fa-whatsapp ml-1"></i></button>
+                            </li>
+                            <li class="flex items-center justify-between p-3 rounded-lg bg-gray-700/30 hover:bg-gray-700 transition-colors">
+                                <span class="text-gray-200 font-medium">Plateau</span>
+                                <button onclick="joinGroup('Plateau')" class="text-xs bg-primary-600 hover:bg-primary-500 text-white px-3 py-1.5 rounded-md font-semibold transition-colors">Join <i class="fa-brands fa-whatsapp ml-1"></i></button>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- NORTH WEST -->
+                <div class="bg-gray-800 rounded-2xl border border-gray-700 overflow-hidden flex flex-col h-full hover:border-teal-500 transition-colors">
+                    <div class="bg-gray-900/50 p-6 border-b border-gray-700 flex items-center gap-4">
+                        <div class="w-12 h-12 bg-teal-900/50 text-teal-400 rounded-lg flex items-center justify-center text-xl">
+                            <i class="fa-solid fa-compass"></i>
+                        </div>
+                        <div>
+                            <h3 class="text-xl font-bold text-white">North West</h3>
+                            <p class="text-gray-400 text-xs mt-1">7 State Marketplaces</p>
+                        </div>
+                    </div>
+                    <div class="p-6 flex-grow">
+                        <ul class="space-y-3">
+                            <li class="flex items-center justify-between p-3 rounded-lg bg-gray-700/30 hover:bg-gray-700 transition-colors">
+                                <span class="text-gray-200 font-medium">Kano</span>
+                                <button onclick="joinGroup('Kano')" class="text-xs bg-primary-600 hover:bg-primary-500 text-white px-3 py-1.5 rounded-md font-semibold transition-colors">Join <i class="fa-brands fa-whatsapp ml-1"></i></button>
+                            </li>
+                            <li class="flex items-center justify-between p-3 rounded-lg bg-gray-700/30 hover:bg-gray-700 transition-colors">
+                                <span class="text-gray-200 font-medium">Kaduna</span>
+                                <button onclick="joinGroup('Kaduna')" class="text-xs bg-primary-600 hover:bg-primary-500 text-white px-3 py-1.5 rounded-md font-semibold transition-colors">Join <i class="fa-brands fa-whatsapp ml-1"></i></button>
+                            </li>
+                            <li class="flex items-center justify-between p-3 rounded-lg bg-gray-700/30 hover:bg-gray-700 transition-colors">
+                                <span class="text-gray-200 font-medium">Katsina</span>
+                                <button onclick="joinGroup('Katsina')" class="text-xs bg-primary-600 hover:bg-primary-500 text-white px-3 py-1.5 rounded-md font-semibold transition-colors">Join <i class="fa-brands fa-whatsapp ml-1"></i></button>
+                            </li>
+                            <li class="flex items-center justify-between p-3 rounded-lg bg-gray-700/30 hover:bg-gray-700 transition-colors">
+                                <span class="text-gray-200 font-medium">Kebbi</span>
+                                <button onclick="joinGroup('Kebbi')" class="text-xs bg-primary-600 hover:bg-primary-500 text-white px-3 py-1.5 rounded-md font-semibold transition-colors">Join <i class="fa-brands fa-whatsapp ml-1"></i></button>
+                            </li>
+                            <li class="flex items-center justify-between p-3 rounded-lg bg-gray-700/30 hover:bg-gray-700 transition-colors">
+                                <span class="text-gray-200 font-medium">Jigawa</span>
+                                <button onclick="joinGroup('Jigawa')" class="text-xs bg-primary-600 hover:bg-primary-500 text-white px-3 py-1.5 rounded-md font-semibold transition-colors">Join <i class="fa-brands fa-whatsapp ml-1"></i></button>
+                            </li>
+                            <li class="flex items-center justify-between p-3 rounded-lg bg-gray-700/30 hover:bg-gray-700 transition-colors">
+                                <span class="text-gray-200 font-medium">Sokoto</span>
+                                <button onclick="joinGroup('Sokoto')" class="text-xs bg-primary-600 hover:bg-primary-500 text-white px-3 py-1.5 rounded-md font-semibold transition-colors">Join <i class="fa-brands fa-whatsapp ml-1"></i></button>
+                            </li>
+                            <li class="flex items-center justify-between p-3 rounded-lg bg-gray-700/30 hover:bg-gray-700 transition-colors">
+                                <span class="text-gray-200 font-medium">Zamfara</span>
+                                <button onclick="joinGroup('Zamfara')" class="text-xs bg-primary-600 hover:bg-primary-500 text-white px-3 py-1.5 rounded-md font-semibold transition-colors">Join <i class="fa-brands fa-whatsapp ml-1"></i></button>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- NORTH EAST -->
+                <div class="bg-gray-800 rounded-2xl border border-gray-700 overflow-hidden flex flex-col h-full hover:border-red-500 transition-colors">
+                    <div class="bg-gray-900/50 p-6 border-b border-gray-700 flex items-center gap-4">
+                        <div class="w-12 h-12 bg-red-900/50 text-red-400 rounded-lg flex items-center justify-center text-xl">
+                            <i class="fa-solid fa-sun"></i>
+                        </div>
+                        <div>
+                            <h3 class="text-xl font-bold text-white">North East</h3>
+                            <p class="text-gray-400 text-xs mt-1">6 State Marketplaces</p>
+                        </div>
+                    </div>
+                    <div class="p-6 flex-grow">
+                        <ul class="space-y-3">
+                            <li class="flex items-center justify-between p-3 rounded-lg bg-gray-700/30 hover:bg-gray-700 transition-colors">
+                                <span class="text-gray-200 font-medium">Adamawa</span>
+                                <button onclick="joinGroup('Adamawa')" class="text-xs bg-primary-600 hover:bg-primary-500 text-white px-3 py-1.5 rounded-md font-semibold transition-colors">Join <i class="fa-brands fa-whatsapp ml-1"></i></button>
+                            </li>
+                            <li class="flex items-center justify-between p-3 rounded-lg bg-gray-700/30 hover:bg-gray-700 transition-colors">
+                                <span class="text-gray-200 font-medium">Bauchi</span>
+                                <button onclick="joinGroup('Bauchi')" class="text-xs bg-primary-600 hover:bg-primary-500 text-white px-3 py-1.5 rounded-md font-semibold transition-colors">Join <i class="fa-brands fa-whatsapp ml-1"></i></button>
+                            </li>
+                            <li class="flex items-center justify-between p-3 rounded-lg bg-gray-700/30 hover:bg-gray-700 transition-colors">
+                                <span class="text-gray-200 font-medium">Borno</span>
+                                <button onclick="joinGroup('Borno')" class="text-xs bg-primary-600 hover:bg-primary-500 text-white px-3 py-1.5 rounded-md font-semibold transition-colors">Join <i class="fa-brands fa-whatsapp ml-1"></i></button>
+                            </li>
+                            <li class="flex items-center justify-between p-3 rounded-lg bg-gray-700/30 hover:bg-gray-700 transition-colors">
+                                <span class="text-gray-200 font-medium">Gombe</span>
+                                <button onclick="joinGroup('Gombe')" class="text-xs bg-primary-600 hover:bg-primary-500 text-white px-3 py-1.5 rounded-md font-semibold transition-colors">Join <i class="fa-brands fa-whatsapp ml-1"></i></button>
+                            </li>
+                            <li class="flex items-center justify-between p-3 rounded-lg bg-gray-700/30 hover:bg-gray-700 transition-colors">
+                                <span class="text-gray-200 font-medium">Taraba</span>
+                                <button onclick="joinGroup('Taraba')" class="text-xs bg-primary-600 hover:bg-primary-500 text-white px-3 py-1.5 rounded-md font-semibold transition-colors">Join <i class="fa-brands fa-whatsapp ml-1"></i></button>
+                            </li>
+                            <li class="flex items-center justify-between p-3 rounded-lg bg-gray-700/30 hover:bg-gray-700 transition-colors">
+                                <span class="text-gray-200 font-medium">Yobe</span>
+                                <button onclick="joinGroup('Yobe')" class="text-xs bg-primary-600 hover:bg-primary-500 text-white px-3 py-1.5 rounded-md font-semibold transition-colors">Join <i class="fa-brands fa-whatsapp ml-1"></i></button>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- MARKETPLACE CATEGORIES -->
+    <section class="py-20 bg-white" id="categories">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-end mb-10">
+                <div>
+                    <h2 class="text-3xl font-bold text-dark mb-2">Buy and Sell Categories</h2>
+                    <p class="text-gray-600">Discover exactly what you're looking for in your local group.</p>
+                </div>
+            </div>
+
+            <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4">
+                <div class="bg-gray-50 border border-gray-100 hover:border-primary-300 rounded-xl p-6 text-center cursor-pointer hover-lift group">
+                    <i class="fa-solid fa-laptop text-3xl text-gray-400 group-hover:text-primary-600 mb-3 transition-colors"></i>
+                    <h4 class="font-semibold text-gray-800 text-sm">Electronics</h4>
+                </div>
+                <div class="bg-gray-50 border border-gray-100 hover:border-primary-300 rounded-xl p-6 text-center cursor-pointer hover-lift group">
+                    <i class="fa-solid fa-shirt text-3xl text-gray-400 group-hover:text-primary-600 mb-3 transition-colors"></i>
+                    <h4 class="font-semibold text-gray-800 text-sm">Fashion</h4>
+                </div>
+                <div class="bg-gray-50 border border-gray-100 hover:border-primary-300 rounded-xl p-6 text-center cursor-pointer hover-lift group">
+                    <i class="fa-solid fa-house-chimney text-3xl text-gray-400 group-hover:text-primary-600 mb-3 transition-colors"></i>
+                    <h4 class="font-semibold text-gray-800 text-sm">Real Estate</h4>
+                </div>
+                <div class="bg-gray-50 border border-gray-100 hover:border-primary-300 rounded-xl p-6 text-center cursor-pointer hover-lift group">
+                    <i class="fa-solid fa-car text-3xl text-gray-400 group-hover:text-primary-600 mb-3 transition-colors"></i>
+                    <h4 class="font-semibold text-gray-800 text-sm">Vehicles</h4>
+                </div>
+                <div class="bg-gray-50 border border-gray-100 hover:border-primary-300 rounded-xl p-6 text-center cursor-pointer hover-lift group">
+                    <i class="fa-solid fa-bowl-food text-3xl text-gray-400 group-hover:text-primary-600 mb-3 transition-colors"></i>
+                    <h4 class="font-semibold text-gray-800 text-sm">Food</h4>
+                </div>
+                <div class="bg-gray-50 border border-gray-100 hover:border-primary-300 rounded-xl p-6 text-center cursor-pointer hover-lift group">
+                    <i class="fa-solid fa-briefcase text-3xl text-gray-400 group-hover:text-primary-600 mb-3 transition-colors"></i>
+                    <h4 class="font-semibold text-gray-800 text-sm">Jobs</h4>
+                </div>
+                <div class="bg-gray-50 border border-gray-100 hover:border-primary-300 rounded-xl p-6 text-center cursor-pointer hover-lift group">
+                    <i class="fa-solid fa-screwdriver-wrench text-3xl text-gray-400 group-hover:text-primary-600 mb-3 transition-colors"></i>
+                    <h4 class="font-semibold text-gray-800 text-sm">Services</h4>
+                </div>
+                <div class="bg-gray-50 border border-gray-100 hover:border-primary-300 rounded-xl p-6 text-center cursor-pointer hover-lift group">
+                    <i class="fa-solid fa-tractor text-3xl text-gray-400 group-hover:text-primary-600 mb-3 transition-colors"></i>
+                    <h4 class="font-semibold text-gray-800 text-sm">Agriculture</h4>
+                </div>
+                <div class="bg-gray-50 border border-gray-100 hover:border-primary-300 rounded-xl p-6 text-center cursor-pointer hover-lift group">
+                    <i class="fa-solid fa-handshake text-3xl text-gray-400 group-hover:text-primary-600 mb-3 transition-colors"></i>
+                    <h4 class="font-semibold text-gray-800 text-sm">Opportunities</h4>
+                </div>
+                <div class="bg-gray-50 border border-gray-100 hover:border-primary-300 rounded-xl p-6 text-center cursor-pointer hover-lift group">
+                    <i class="fa-solid fa-graduation-cap text-3xl text-gray-400 group-hover:text-primary-600 mb-3 transition-colors"></i>
+                    <h4 class="font-semibold text-gray-800 text-sm">Education</h4>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FEATURED SELLERS AND BUSINESSES -->
+    <section class="py-20 bg-gray-50 border-t border-gray-100" id="featured">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold text-dark mb-4">Featured Sellers & Businesses</h2>
+                <p class="text-gray-600 max-w-2xl mx-auto">Explore some of the verified businesses trading successfully within our localized groups.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Business Card 1 -->
+                <div class="bg-white rounded-2xl p-6 shadow-sm border border-gray-100 hover:shadow-md transition-shadow">
+                    <div class="flex items-start justify-between mb-4">
+                        <div class="flex items-center gap-3">
+                            <div class="w-12 h-12 bg-blue-100 text-blue-600 rounded-full flex items-center justify-center font-bold text-xl">
+                                T
+                            </div>
+                            <div>
+                                <h3 class="font-bold text-dark text-lg">TechHaven Gadgets</h3>
+                                <span class="bg-gray-100 text-gray-600 text-xs px-2 py-1 rounded-md font-medium">Electronics</span>
+                            </div>
+                        </div>
+                        <div class="text-yellow-400 text-sm">
+                            <i class="fa-solid fa-star"></i> 4.9
+                        </div>
+                    </div>
+                    <div class="flex items-center gap-2 text-gray-500 text-sm mb-6">
+                        <i class="fa-solid fa-location-dot"></i>
+                        <span>Computer Village, Lagos Marketplace</span>
+                    </div>
+                    <button onclick="contactVendor('TechHaven')" class="w-full bg-gray-50 hover:bg-gray-100 border border-gray-200 text-dark font-medium py-2.5 rounded-xl transition-colors">
+                        Contact Seller <i class="fa-solid fa-comment-dots ml-1"></i>
+                    </button>
+                </div>
+
+                <!-- Business Card 2 -->
+                <div class="bg-white rounded-2xl p-6 shadow-sm border border-gray-100 hover:shadow-md transition-shadow">
+                    <div class="flex items-start justify-between mb-4">
+                        <div class="flex items-center gap-3">
+                            <div class="w-12 h-12 bg-pink-100 text-pink-600 rounded-full flex items-center justify-center font-bold text-xl">
+                                A
+                            </div>
+                            <div>
+                                <h3 class="font-bold text-dark text-lg">Amara Styles</h3>
+                                <span class="bg-gray-100 text-gray-600 text-xs px-2 py-1 rounded-md font-medium">Fashion</span>
+                            </div>
+                        </div>
+                        <div class="text-yellow-400 text-sm">
+                            <i class="fa-solid fa-star"></i> 4.8
+                        </div>
+                    </div>
+                    <div class="flex items-center gap-2 text-gray-500 text-sm mb-6">
+                        <i class="fa-solid fa-location-dot"></i>
+                        <span>Wuse Market, Abuja Marketplace</span>
+                    </div>
+                    <button onclick="contactVendor('Amara')" class="w-full bg-gray-50 hover:bg-gray-100 border border-gray-200 text-dark font-medium py-2.5 rounded-xl transition-colors">
+                        Contact Seller <i class="fa-solid fa-comment-dots ml-1"></i>
+                    </button>
+                </div>
+
+                <!-- Business Card 3 -->
+                <div class="bg-white rounded-2xl p-6 shadow-sm border border-gray-100 hover:shadow-md transition-shadow">
+                    <div class="flex items-start justify-between mb-4">
+                        <div class="flex items-center gap-3">
+                            <div class="w-12 h-12 bg-green-100 text-green-600 rounded-full flex items-center justify-center font-bold text-xl">
+                                O
+                            </div>
+                            <div>
+                                <h3 class="font-bold text-dark text-lg">Oga Fresh Farms</h3>
+                                <span class="bg-gray-100 text-gray-600 text-xs px-2 py-1 rounded-md font-medium">Agriculture</span>
+                            </div>
+                        </div>
+                        <div class="text-yellow-400 text-sm">
+                            <i class="fa-solid fa-star"></i> 5.0
+                        </div>
+                    </div>
+                    <div class="flex items-center gap-2 text-gray-500 text-sm mb-6">
+                        <i class="fa-solid fa-location-dot"></i>
+                        <span>Bodija, Oyo Marketplace</span>
+                    </div>
+                    <button onclick="contactVendor('Oga Fresh')" class="w-full bg-gray-50 hover:bg-gray-100 border border-gray-200 text-dark font-medium py-2.5 rounded-xl transition-colors">
+                        Contact Seller <i class="fa-solid fa-comment-dots ml-1"></i>
+                    </button>
+                </div>
+            </div>
+            
+            <div class="text-center mt-8">
+                <a href="#promo" class="text-primary-600 font-semibold hover:text-primary-700">Want to feature your business here? &rarr;</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- PROMOTION SECTION -->
+    <section class="py-20" id="promo">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="bg-primary-900 rounded-3xl overflow-hidden shadow-2xl relative">
+                <!-- Background decoration -->
+                <div class="absolute top-0 right-0 -mt-16 -mr-16 w-64 h-64 bg-primary-800 rounded-full opacity-50 blur-3xl"></div>
+                <div class="absolute bottom-0 left-0 -mb-16 -ml-16 w-64 h-64 bg-green-600 rounded-full opacity-30 blur-3xl"></div>
+                
+                <div class="relative z-10 px-8 py-16 md:px-16 md:py-20 flex flex-col md:flex-row items-center justify-between gap-10">
+                    <div class="md:w-3/5 text-center md:text-left">
+                        <h2 class="text-3xl md:text-4xl font-bold text-white mb-6 leading-tight">Grow Your Business With CommunityHub</h2>
+                        <p class="text-primary-100 text-lg mb-8 max-w-xl">
+                            Advertise your products, services and brand directly to highly targeted, active marketplace communities. Reach thousands of ready-to-buy customers in your specific state.
+                        </p>
+                        <div class="flex flex-col sm:flex-row gap-4 justify-center md:justify-start">
+                            <button onclick="showModal('advertise')" class="bg-white text-primary-900 px-8 py-3.5 rounded-full font-bold text-lg hover:bg-gray-100 transition-colors shadow-lg">
+                                Advertise Now
+                            </button>
+                            <button onclick="showModal('submit')" class="bg-primary-800 text-white border border-primary-700 px-8 py-3.5 rounded-full font-bold text-lg hover:bg-primary-700 transition-colors">
+                                Submit Business
+                            </button>
+                        </div>
+                    </div>
+                    <div class="md:w-2/5 hidden md:flex justify-center">
+                        <div class="w-64 h-64 bg-white/10 backdrop-blur-sm rounded-2xl border border-white/20 flex flex-col items-center justify-center p-6 transform rotate-3 shadow-xl">
+                            <i class="fa-solid fa-rocket text-6xl text-white mb-4"></i>
+                            <h4 class="text-white font-bold text-xl mb-2 text-center">Boost Sales</h4>
+                            <p class="text-primary-100 text-sm text-center">Pin your products to the top of your state's community group.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FINAL CALL TO ACTION -->
+    <section class="py-24 bg-white text-center">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="inline-flex items-center justify-center w-20 h-20 bg-green-100 rounded-full text-green-600 text-4xl mb-8 shadow-sm">
+                <i class="fa-brands fa-whatsapp"></i>
+            </div>
+            <h2 class="text-4xl md:text-5xl font-extrabold text-dark mb-6">Join Your Local Marketplace Today</h2>
+            <p class="text-xl text-gray-600 mb-10 max-w-2xl mx-auto">Stop searching everywhere. Buy, sell, and connect with people right where you live.</p>
+            <a href="#zones" class="inline-flex justify-center items-center gap-2 bg-primary-600 hover:bg-primary-700 text-white px-10 py-4 rounded-full font-bold text-xl transition-all shadow-xl shadow-primary-600/30 transform hover:scale-105">
+                Join WhatsApp Marketplace
+            </a>
+            <p class="mt-6 text-sm text-gray-500 font-medium">Free forever. Secure groups. Strict moderation.</p>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="bg-gray-900 border-t border-gray-800 pt-16 pb-8">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-12">
+                <!-- Brand Info -->
+                <div class="col-span-1 lg:col-span-1">
+                    <div class="flex items-center gap-2 mb-6">
+                        <div class="w-8 h-8 bg-primary-600 rounded flex items-center justify-center text-white font-bold text-sm">
+                            <i class="fa-solid fa-store"></i>
+                        </div>
+                        <span class="font-bold text-lg tracking-tight text-white">CommunityHub<span class="text-primary-500">NG</span></span>
+                    </div>
+                    <p class="text-gray-400 text-sm leading-relaxed mb-6">
+                        The premier marketplace network organizing Nigeria's buyers and sellers through geo-targeted community groups.
+                    </p>
+                    <div class="flex space-x-4">
+                        <a href="#" class="text-gray-400 hover:text-white transition-colors"><i class="fa-brands fa-twitter text-xl"></i></a>
+                        <a href="#" class="text-gray-400 hover:text-white transition-colors"><i class="fa-brands fa-facebook text-xl"></i></a>
+                        <a href="#" class="text-gray-400 hover:text-white transition-colors"><i class="fa-brands fa-instagram text-xl"></i></a>
+                    </div>
+                </div>
+
+                <!-- Quick Links -->
+                <div>
+                    <h4 class="text-white font-bold mb-6 uppercase text-sm tracking-wider">Company</h4>
+                    <ul class="space-y-4">
+                        <li><a href="#" class="text-gray-400 hover:text-primary-400 transition-colors text-sm">About Us</a></li>
+                        <li><a href="#zones" class="text-gray-400 hover:text-primary-400 transition-colors text-sm">Marketplace Zones</a></li>
+                        <li><a href="#how-it-works" class="text-gray-400 hover:text-primary-400 transition-colors text-sm">How it Works</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-primary-400 transition-colors text-sm">Contact Support</a></li>
+                    </ul>
+                </div>
+
+                <!-- Business -->
+                <div>
+                    <h4 class="text-white font-bold mb-6 uppercase text-sm tracking-wider">For Business</h4>
+                    <ul class="space-y-4">
+                        <li><a href="#promo" class="text-gray-400 hover:text-primary-400 transition-colors text-sm">Advertise</a></li>
+                        <li><a href="#promo" class="text-gray-400 hover:text-primary-400 transition-colors text-sm">Submit Business Listing</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-primary-400 transition-colors text-sm">Success Stories</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-primary-400 transition-colors text-sm">Partnerships</a></li>
+                    </ul>
+                </div>
+
+                <!-- Legal -->
+                <div>
+                    <h4 class="text-white font-bold mb-6 uppercase text-sm tracking-wider">Legal</h4>
+                    <ul class="space-y-4">
+                        <li><a href="#" class="text-gray-400 hover:text-primary-400 transition-colors text-sm">Terms of Service</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-primary-400 transition-colors text-sm">Privacy Policy</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-primary-400 transition-colors text-sm">Community Guidelines</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-primary-400 transition-colors text-sm">Safety Tips</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="border-t border-gray-800 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
+                <p class="text-gray-500 text-sm text-center md:text-left">
+                    &copy; 2026 CommunityHub Nigeria Marketplace. All rights reserved.
+                </p>
+                <p class="text-gray-600 text-sm flex items-center gap-1">
+                    Made with <i class="fa-solid fa-heart text-red-500 mx-1"></i> for Nigeria
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Simple Custom Modal for Interactive Actions -->
+    <div id="action-modal" class="fixed inset-0 z-[100] bg-dark/80 backdrop-blur-sm hidden items-center justify-center p-4 opacity-0 transition-opacity duration-300">
+        <div class="bg-white rounded-2xl max-w-md w-full p-8 text-center relative transform scale-95 transition-transform duration-300" id="modal-content">
+            <button onclick="closeModal()" class="absolute top-4 right-4 text-gray-400 hover:text-dark">
+                <i class="fa-solid fa-xmark text-xl"></i>
+            </button>
+            <div id="modal-icon" class="w-16 h-16 bg-primary-100 text-primary-600 rounded-full flex items-center justify-center text-3xl mx-auto mb-4">
+                <i class="fa-brands fa-whatsapp"></i>
+            </div>
+            <h3 id="modal-title" class="text-2xl font-bold text-dark mb-2">Join Marketplace</h3>
+            <p id="modal-desc" class="text-gray-600 mb-6">You are about to join the official marketplace group.</p>
+            <button onclick="closeModal()" class="w-full bg-primary-600 hover:bg-primary-700 text-white font-bold py-3 rounded-xl transition-colors mb-3 shadow-md shadow-primary-600/20">
+                Continue to Group
+            </button>
+            <button onclick="closeModal()" class="w-full bg-gray-100 hover:bg-gray-200 text-gray-700 font-medium py-3 rounded-xl transition-colors">
+                Cancel
+            </button>
+        </div>
+    </div>
+
+    <!-- JavaScript for Interactions -->
+    <script>
+        // Mobile Menu Toggle
+        const btn = document.getElementById('mobile-menu-btn');
+        const menu = document.getElementById('mobile-menu');
+
+        btn.addEventListener('click', () => {
+            menu.classList.toggle('hidden');
+        });
+
+        // Close mobile menu when clicking a link
+        const mobileLinks = menu.querySelectorAll('a');
+        mobileLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                menu.classList.add('hidden');
+            });
+        });
+
+        // Navbar scroll effect
+        window.addEventListener('scroll', () => {
+            const nav = document.getElementById('navbar');
+            if (window.scrollY > 20) {
+                nav.classList.add('shadow-md');
+                nav.classList.remove('shadow-sm');
+            } else {
+                nav.classList.add('shadow-sm');
+                nav.classList.remove('shadow-md');
+            }
+        });
+
+        // Modal Logic (Simulating application flow)
+        const modal = document.getElementById('action-modal');
+        const modalContent = document.getElementById('modal-content');
+        const modalTitle = document.getElementById('modal-title');
+        const modalDesc = document.getElementById('modal-desc');
+        const modalIcon = document.getElementById('modal-icon');
+
+        function openModalUi() {
+            modal.classList.remove('hidden');
+            modal.classList.add('flex');
+            // small delay to allow display flex to apply before opacity transition
+            setTimeout(() => {
+                modal.classList.remove('opacity-0');
+                modalContent.classList.remove('scale-95');
+                modalContent.classList.add('scale-100');
+            }, 10);
+        }
+
+        function closeModal() {
+            modal.classList.add('opacity-0');
+            modalContent.classList.remove('scale-100');
+            modalContent.classList.add('scale-95');
+            setTimeout(() => {
+                modal.classList.add('hidden');
+                modal.classList.remove('flex');
+            }, 300);
+        }
+
+        // Close modal when clicking outside
+        modal.addEventListener('click', (e) => {
+            if (e.target === modal) {
+                closeModal();
+            }
+        });
+
+        // Actions triggered by buttons
+        function joinGroup(stateName) {
+            modalIcon.innerHTML = '<i class="fa-brands fa-whatsapp"></i>';
+            modalIcon.className = "w-16 h-16 bg-green-100 text-green-600 rounded-full flex items-center justify-center text-3xl mx-auto mb-4";
+            modalTitle.innerText = `Join ${stateName} Marketplace`;
+            modalDesc.innerText = `You are about to be redirected to the verified WhatsApp group for the ${stateName} business community.`;
+            openModalUi();
+        }
+
+        function contactVendor(vendorName) {
+            modalIcon.innerHTML = '<i class="fa-solid fa-store"></i>';
+            modalIcon.className = "w-16 h-16 bg-blue-100 text-blue-600 rounded-full flex items-center justify-center text-3xl mx-auto mb-4";
+            modalTitle.innerText = `Contact ${vendorName}`;
+            modalDesc.innerText = `Send a direct message to this seller securely via WhatsApp to negotiate or make a purchase.`;
+            openModalUi();
+        }
+
+        function showModal(type) {
+            if (type === 'advertise') {
+                modalIcon.innerHTML = '<i class="fa-solid fa-bullhorn"></i>';
+                modalIcon.className = "w-16 h-16 bg-orange-100 text-orange-600 rounded-full flex items-center justify-center text-3xl mx-auto mb-4";
+                modalTitle.innerText = "Advertise Your Business";
+                modalDesc.innerText = "Get premium placement in our groups. A representative will contact you to discuss packages.";
+            } else if (type === 'submit') {
+                modalIcon.innerHTML = '<i class="fa-solid fa-list-check"></i>';
+                modalIcon.className = "w-16 h-16 bg-primary-100 text-primary-600 rounded-full flex items-center justify-center text-3xl mx-auto mb-4";
+                modalTitle.innerText = "Submit Business Listing";
+                modalDesc.innerText = "Add your business to our local directory to be discovered by buyers in your zone.";
+            }
+            openModalUi();
+        }
+    </script>
+</body>
+</html>
+
+```
