@@ -344,7 +344,7 @@
                         <ul class="space-y-3">
                             <li class="flex items-center justify-between p-3 rounded-lg bg-gray-700/30 hover:bg-gray-700 transition-colors">
                                 <span class="text-gray-200 font-medium">Lagos</span>
-                                <button onclick="joinGroup('https://chat.whatsapp.com/Ic4e0PnVywKIdmGTmFURkV')" class="text-xs bg-primary-600 hover:bg-primary-500 text-white px-3 py-1.5 rounded-md font-semibold transition-colors">Join <i class="fa-brands fa-whatsapp ml-1"></i></button>
+                                <button onclick="joinGroup('Lagos')" class="text-xs bg-primary-600 hover:bg-primary-500 text-white px-3 py-1.5 rounded-md font-semibold transition-colors">Join <i class="fa-brands fa-whatsapp ml-1"></i></button>
                             </li>
                             <li class="flex items-center justify-between p-3 rounded-lg bg-gray-700/30 hover:bg-gray-700 transition-colors">
                                 <span class="text-gray-200 font-medium">Oyo</span>
@@ -856,12 +856,12 @@
                 <i class="fa-brands fa-whatsapp"></i>
             </div>
             <h3 id="modal-title" class="text-2xl font-bold text-dark mb-2">Join Marketplace</h3>
-            <p id="modal-desc" class="text-gray-600 mb-6">You are about to join the official marketplace group.</p>
-            <button onclick="closeModal()" class="w-full bg-primary-600 hover:bg-primary-700 text-white font-bold py-3 rounded-xl transition-colors mb-3 shadow-md shadow-primary-600/20">
-                Continue to Group
-            </button>
-            <button onclick="closeModal()" class="w-full bg-gray-100 hover:bg-gray-200 text-gray-700 font-medium py-3 rounded-xl transition-colors">
-                Cancel
+        <p id="modal-desc" class="text-gray-600 mb-6">You are about to join the official marketplace group.</p>
+        <button id="continue-btn" class="w-full bg-primary-600 hover:bg-primary-700 text-white font-bold py-3 rounded-xl transition-colors mb-3 shadow-md shadow-primary-600/20">
+            Continue to Group
+        </button>
+        <button onclick="closeModal()" class="w-full bg-gray-100 hover:bg-gray-200 text-gray-700 font-medium py-3 rounded-xl transition-colors">
+            Cancel
             </button>
         </div>
     </div>
@@ -931,12 +931,35 @@
             }
         });
 
+        // 1. ADD YOUR UNIQUE GROUP LINKS HERE
+        const stateLinks = {
+            'Lagos': 'https://chat.whatsapp.com/YOUR_LAGOS_LINK',
+            'Oyo': 'https://chat.whatsapp.com/Ic4e0PnVywKIdmGTmFURkV',
+            'Abuja': 'https://chat.whatsapp.com/YOUR_ABUJA_LINK',
+            'Kano': 'https://chat.whatsapp.com/YOUR_KANO_LINK',
+            // Keep adding states identically like the ones above: 'StateName': 'Link',
+        };
+
         // Actions triggered by buttons
         function joinGroup(stateName) {
             modalIcon.innerHTML = '<i class="fa-brands fa-whatsapp"></i>';
             modalIcon.className = "w-16 h-16 bg-green-100 text-green-600 rounded-full flex items-center justify-center text-3xl mx-auto mb-4";
             modalTitle.innerText = `Join ${stateName} Marketplace`;
             modalDesc.innerText = `You are about to be redirected to the verified WhatsApp group for the ${stateName} business community.`;
+            
+            // 2. THIS MAKES THE BUTTON OPEN THE CORRECT LINK
+            const continueBtn = document.getElementById('continue-btn');
+            continueBtn.onclick = function() {
+                // Find the link in our list above, fallback to '#' if not found
+                const link = stateLinks[stateName] || '#'; 
+                if(link !== '#') {
+                    window.open(link, '_blank'); // Opens in a new tab
+                } else {
+                    alert("Link for " + stateName + " is coming soon!");
+                }
+                closeModal();
+            };
+
             openModalUi();
         }
 
@@ -965,3 +988,4 @@
     </script>
 </body>
 </html>
+
