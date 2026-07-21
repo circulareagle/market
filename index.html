@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en" class="scroll-smooth">
 <head>
@@ -90,8 +89,8 @@
                     <a href="#zones" class="text-gray-600 hover:text-primary-600 font-medium transition-colors">Marketplace Zones</a>
                     <a href="#categories" class="text-gray-600 hover:text-primary-600 font-medium transition-colors">Categories</a>
                     <a href="#featured" class="text-gray-600 hover:text-primary-600 font-medium transition-colors">Businesses</a>
-                    <a href="#promo" class="text-gray-600 hover:text-primary-600 font-medium transition-colors">Advertise</a>
-                    <a href="#promo" class="bg-primary-600 hover:bg-primary-700 text-white px-5 py-2.5 rounded-full font-medium transition-all shadow-md shadow-primary-600/20 transform hover:-translate-y-0.5">Submit Listing</a>
+                    <a href="#promo" class="text-gray-600 hover:text-primary-600 font-medium transition-colors">Submit Listing</a>
+                    <button onclick="showModal('submit')" class="bg-primary-600 hover:bg-primary-700 text-white px-5 py-2.5 rounded-full font-medium transition-all shadow-md shadow-primary-600/20 transform hover:-translate-y-0.5">Submit Listing</button>
                 </div>
 
                 <!-- Mobile menu button -->
@@ -104,15 +103,15 @@
         </div>
 
         <!-- Mobile Menu Panel -->
-        <div id="mobile-menu" class="hidden lg:hidden bg-white border-t border-gray-100 absolute w-full shadow-lg">
+        <div id="mobile-menu" class="hidden lg:hidden bg-white border-t border-gray-100 absolute w-full shadow-lg z-40">
             <div class="px-4 pt-2 pb-6 space-y-1">
                 <a href="#" class="block px-3 py-3 rounded-md text-base font-medium text-gray-700 hover:text-primary-600 hover:bg-primary-50">Home</a>
                 <a href="#zones" class="block px-3 py-3 rounded-md text-base font-medium text-gray-700 hover:text-primary-600 hover:bg-primary-50">Marketplace Zones</a>
                 <a href="#categories" class="block px-3 py-3 rounded-md text-base font-medium text-gray-700 hover:text-primary-600 hover:bg-primary-50">Categories</a>
                 <a href="#featured" class="block px-3 py-3 rounded-md text-base font-medium text-gray-700 hover:text-primary-600 hover:bg-primary-50">Businesses</a>
-                <a href="#promo" class="block px-3 py-3 rounded-md text-base font-medium text-gray-700 hover:text-primary-600 hover:bg-primary-50">Advertise</a>
+                <a href="#promo" class="block px-3 py-3 rounded-md text-base font-medium text-gray-700 hover:text-primary-600 hover:bg-primary-50">Submit Listing</a>
                 <div class="mt-4 px-3">
-                    <a href="#promo" class="block w-full text-center bg-primary-600 hover:bg-primary-700 text-white px-5 py-3 rounded-lg font-medium shadow-md">Submit Listing</a>
+                    <button onclick="showModal('submit'); document.getElementById('mobile-menu').classList.add('hidden');" class="block w-full text-center bg-primary-600 hover:bg-primary-700 text-white px-5 py-3 rounded-lg font-medium shadow-md">Submit Listing</button>
                 </div>
             </div>
         </div>
@@ -148,10 +147,10 @@
                             Join Marketplace
                             <i class="fa-solid fa-arrow-right"></i>
                         </a>
-                        <a href="#promo" class="inline-flex justify-center items-center gap-2 bg-white hover:bg-gray-50 text-dark border-2 border-gray-200 px-8 py-3.5 rounded-full font-semibold text-lg transition-all hover:border-gray-300">
-                            Sell Your Products
+                        <button onclick="showModal('submit')" class="inline-flex justify-center items-center gap-2 bg-white hover:bg-gray-50 text-dark border-2 border-gray-200 px-8 py-3.5 rounded-full font-semibold text-lg transition-all hover:border-gray-300">
+                            Submit Listing
                             <i class="fa-solid fa-store"></i>
-                        </a>
+                        </button>
                     </div>
                     <div class="mt-8 flex items-center justify-center lg:justify-start gap-4 text-sm text-gray-500">
                         <div class="flex -space-x-2">
@@ -236,7 +235,7 @@
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center mb-12">
                 <h2 class="text-3xl font-bold text-dark mb-4">How It Works</h2>
-                <p class="text-gray-600 max-w-2xl mx-auto">Getting started is completely free. Join your community and start trading in minutes.</p>
+                <p class="text-gray-600 max-w-2xl mx-auto">Join your community to browse or submit your listing to start trading.</p>
             </div>
             
             <div class="grid grid-cols-1 md:grid-cols-3 gap-8 relative">
@@ -263,8 +262,8 @@
                     <div class="w-20 h-20 mx-auto bg-orange-100 rounded-2xl flex items-center justify-center text-orange-600 text-3xl font-bold mb-6 rotate-3">
                         3
                     </div>
-                    <h3 class="text-xl font-bold text-dark mb-2">Trade & Connect</h3>
-                    <p class="text-gray-600 text-sm">Post products, discover local opportunities, and connect directly with buyers.</p>
+                    <h3 class="text-xl font-bold text-dark mb-2">Submit Listing</h3>
+                    <p class="text-gray-600 text-sm">Submit your business listing to gain direct exposure to buyers in your state.</p>
                 </div>
             </div>
         </div>
@@ -294,7 +293,7 @@
                         <i class="fa-solid fa-chart-line"></i>
                     </div>
                     <h3 class="text-xl font-bold text-dark mb-3">Business Growth</h3>
-                    <p class="text-gray-600 leading-relaxed text-sm">Promote your business directly to targeted, localized customers ready to buy.</p>
+                    <p class="text-gray-600 leading-relaxed text-sm">Submit your listing to connect directly with targeted, localized customers ready to buy.</p>
                 </div>
 
                 <!-- Card 3 -->
@@ -355,7 +354,7 @@
                                 <button onclick="joinGroup('Abeokuta')" class="text-xs bg-primary-600 hover:bg-primary-500 text-white px-3 py-1.5 rounded-md font-semibold transition-colors">Join <i class="fa-brands fa-whatsapp ml-1"></i></button>
                             </li>
                             <li class="flex items-center justify-between p-3 rounded-lg bg-gray-700/30 hover:bg-gray-700 transition-colors">
-                                <span class="text-gray-200 font-medium">Ososgbo</span>
+                                <span class="text-gray-200 font-medium">Osogbo</span>
                                 <button onclick="joinGroup('Osogbo')" class="text-xs bg-primary-600 hover:bg-primary-500 text-white px-3 py-1.5 rounded-md font-semibold transition-colors">Join <i class="fa-brands fa-whatsapp ml-1"></i></button>
                             </li>
                             <li class="flex items-center justify-between p-3 rounded-lg bg-gray-700/30 hover:bg-gray-700 transition-colors">
@@ -667,7 +666,7 @@
                         <i class="fa-solid fa-location-dot"></i>
                         <span>Computer Village, Lagos Marketplace</span>
                     </div>
-                    <button onclick="contactVendor('TechHaven')" class="w-full bg-gray-50 hover:bg-gray-100 border border-gray-200 text-dark font-medium py-2.5 rounded-xl transition-colors">
+                    <button onclick="contactVendor('TechHaven Gadgets')" class="w-full bg-gray-50 hover:bg-gray-100 border border-gray-200 text-dark font-medium py-2.5 rounded-xl transition-colors">
                         Contact Seller <i class="fa-solid fa-comment-dots ml-1"></i>
                     </button>
                 </div>
@@ -692,7 +691,7 @@
                         <i class="fa-solid fa-location-dot"></i>
                         <span>Wuse Market, Abuja Marketplace</span>
                     </div>
-                    <button onclick="contactVendor('Amara')" class="w-full bg-gray-50 hover:bg-gray-100 border border-gray-200 text-dark font-medium py-2.5 rounded-xl transition-colors">
+                    <button onclick="contactVendor('Amara Styles')" class="w-full bg-gray-50 hover:bg-gray-100 border border-gray-200 text-dark font-medium py-2.5 rounded-xl transition-colors">
                         Contact Seller <i class="fa-solid fa-comment-dots ml-1"></i>
                     </button>
                 </div>
@@ -717,19 +716,19 @@
                         <i class="fa-solid fa-location-dot"></i>
                         <span>Bodija, Oyo Marketplace</span>
                     </div>
-                    <button onclick="contactVendor('Oga Fresh')" class="w-full bg-gray-50 hover:bg-gray-100 border border-gray-200 text-dark font-medium py-2.5 rounded-xl transition-colors">
+                    <button onclick="contactVendor('Oga Fresh Farms')" class="w-full bg-gray-50 hover:bg-gray-100 border border-gray-200 text-dark font-medium py-2.5 rounded-xl transition-colors">
                         Contact Seller <i class="fa-solid fa-comment-dots ml-1"></i>
                     </button>
                 </div>
             </div>
             
             <div class="text-center mt-8">
-                <a href="#promo" class="text-primary-600 font-semibold hover:text-primary-700">Want to feature your business here? &rarr;</a>
+                <button onclick="showModal('submit')" class="text-primary-600 font-semibold hover:text-primary-700">Want to list your business here? &rarr;</button>
             </div>
         </div>
     </section>
 
-    <!-- PROMOTION SECTION -->
+    <!-- PROMOTION / SUBMIT LISTING SECTION -->
     <section class="py-20" id="promo">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="bg-primary-900 rounded-3xl overflow-hidden shadow-2xl relative">
@@ -741,14 +740,11 @@
                     <div class="md:w-3/5 text-center md:text-left">
                         <h2 class="text-3xl md:text-4xl font-bold text-white mb-6 leading-tight">Grow Your Business With CommunityHub</h2>
                         <p class="text-primary-100 text-lg mb-8 max-w-xl">
-                            Advertise your products, services and brand directly to highly targeted, active marketplace communities. Reach thousands of ready-to-buy customers in your specific state.
+                            Submit your business listing to showcase your products, services, and brand directly to active marketplace communities in your state.
                         </p>
                         <div class="flex flex-col sm:flex-row gap-4 justify-center md:justify-start">
-                            <button onclick="showModal('advertise')" class="bg-white text-primary-900 px-8 py-3.5 rounded-full font-bold text-lg hover:bg-gray-100 transition-colors shadow-lg">
-                                Advertise Now
-                            </button>
-                            <button onclick="showModal('submit')" class="bg-primary-800 text-white border border-primary-700 px-8 py-3.5 rounded-full font-bold text-lg hover:bg-primary-700 transition-colors">
-                                Submit Business
+                            <button onclick="showModal('submit')" class="bg-white text-primary-900 px-8 py-3.5 rounded-full font-bold text-lg hover:bg-gray-100 transition-colors shadow-lg">
+                                Submit Listing
                             </button>
                         </div>
                     </div>
@@ -756,7 +752,7 @@
                         <div class="w-64 h-64 bg-white/10 backdrop-blur-sm rounded-2xl border border-white/20 flex flex-col items-center justify-center p-6 transform rotate-3 shadow-xl">
                             <i class="fa-solid fa-rocket text-6xl text-white mb-4"></i>
                             <h4 class="text-white font-bold text-xl mb-2 text-center">Boost Sales</h4>
-                            <p class="text-primary-100 text-sm text-center">Pin your products to the top of your state's community group.</p>
+                            <p class="text-primary-100 text-sm text-center">Get listed and reach thousands of ready buyers in your targeted state.</p>
                         </div>
                     </div>
                 </div>
@@ -775,7 +771,7 @@
             <a href="#zones" class="inline-flex justify-center items-center gap-2 bg-primary-600 hover:bg-primary-700 text-white px-10 py-4 rounded-full font-bold text-xl transition-all shadow-xl shadow-primary-600/30 transform hover:scale-105">
                 Join WhatsApp Marketplace
             </a>
-            <p class="mt-6 text-sm text-gray-500 font-medium">Free forever. Secure groups. Strict moderation.</p>
+            <p class="mt-6 text-sm text-gray-500 font-medium">Secure groups. Strict moderation.</p>
         </div>
     </section>
 
@@ -816,8 +812,7 @@
                 <div>
                     <h4 class="text-white font-bold mb-6 uppercase text-sm tracking-wider">For Business</h4>
                     <ul class="space-y-4">
-                        <li><a href="#promo" class="text-gray-400 hover:text-primary-400 transition-colors text-sm">Advertise</a></li>
-                        <li><a href="#promo" class="text-gray-400 hover:text-primary-400 transition-colors text-sm">Submit Business Listing</a></li>
+                        <li><a href="#promo" class="text-gray-400 hover:text-primary-400 transition-colors text-sm">Submit Listing</a></li>
                         <li><a href="#" class="text-gray-400 hover:text-primary-400 transition-colors text-sm">Success Stories</a></li>
                         <li><a href="#" class="text-gray-400 hover:text-primary-400 transition-colors text-sm">Partnerships</a></li>
                     </ul>
@@ -846,28 +841,65 @@
         </div>
     </footer>
 
-    <!-- Simple Custom Modal for Interactive Actions -->
+    <!-- Interactive Action Modal -->
     <div id="action-modal" class="fixed inset-0 z-[100] bg-dark/80 backdrop-blur-sm hidden items-center justify-center p-4 opacity-0 transition-opacity duration-300">
         <div class="bg-white rounded-2xl max-w-md w-full p-8 text-center relative transform scale-95 transition-transform duration-300" id="modal-content">
             <button onclick="closeModal()" class="absolute top-4 right-4 text-gray-400 hover:text-dark">
                 <i class="fa-solid fa-xmark text-xl"></i>
             </button>
             <div id="modal-icon" class="w-16 h-16 bg-primary-100 text-primary-600 rounded-full flex items-center justify-center text-3xl mx-auto mb-4">
-                <i class="fa-brands fa-whatsapp"></i>
+                <!-- Icon injected via JS -->
             </div>
-            <h3 id="modal-title" class="text-2xl font-bold text-dark mb-2">Join Marketplace</h3>
-        <p id="modal-desc" class="text-gray-600 mb-6">You are about to join the official marketplace group.</p>
-        <button id="continue-btn" class="w-full bg-primary-600 hover:bg-primary-700 text-white font-bold py-3 rounded-xl transition-colors mb-3 shadow-md shadow-primary-600/20">
-            Continue to Group
-        </button>
-        <button onclick="closeModal()" class="w-full bg-gray-100 hover:bg-gray-200 text-gray-700 font-medium py-3 rounded-xl transition-colors">
-            Cancel
+            <h3 id="modal-title" class="text-2xl font-bold text-dark mb-2">Title</h3>
+            <p id="modal-desc" class="text-gray-600 mb-6">Description</p>
+            
+            <button id="continue-btn" class="w-full bg-primary-600 hover:bg-primary-700 text-white font-bold py-3 rounded-xl transition-colors mb-3 shadow-md shadow-primary-600/20">
+                Action Text
+            </button>
+            <button onclick="closeModal()" class="w-full bg-gray-100 hover:bg-gray-200 text-gray-700 font-medium py-3 rounded-xl transition-colors">
+                Cancel
             </button>
         </div>
     </div>
 
     <!-- JavaScript for Interactions -->
     <script>
+        // =====================================================================================
+        // LINK CONFIGURATION AREA - UPDATE YOUR LINKS HERE
+        // Provision for all links on the website allowing easy updates without diving into HTML.
+        // =====================================================================================
+        const globalLinks = {
+            // 1. Group Links by State
+            states: {
+                'Akure': 'https://chat.whatsapp.com/CG3ZJ6TPXW1AqMMsSbcQ7X',
+                'Abeokuta': 'https://chat.whatsapp.com/KGHfCXgwVIkBaZrisz6Gga',
+                'Osogbo': 'https://chat.whatsapp.com/JdtbTjxvRnu7Mr5AWZuqHp',
+                'Ekiti': 'https://chat.whatsapp.com/E0YQkcH157FHsqtiMS9WBD',
+                'Ilorin': 'https://chat.whatsapp.com/KGHfCXgwVIkBaZrisz6Gga',
+                'Ibadan': 'https://chat.whatsapp.com/Ic4e0PnVywKIdmGTmFURkV',
+                'Lagos': 'https://chat.whatsapp.com/HhoahyvBx8s22Adj883NOz',
+                'Abuja': '#', 
+                'Kano': '#'
+            },
+            
+            // 2. Featured Vendor WhatsApp/Contact Links
+            vendors: {
+                'TechHaven Gadgets': 'https://wa.me/2340000000000',
+                'Amara Styles': 'https://wa.me/2340000000000',
+                'Oga Fresh Farms': 'https://wa.me/2340000000000'
+            },
+
+            // 3. Admin / Service Links (Submit Listing)
+            admin: {
+                'submit': 'https://wa.me/2340000000000?text=I%20want%20to%20submit%20my%20business%20listing'
+            }
+        };
+
+
+        // =====================================================================================
+        // UI & MODAL LOGIC
+        // =====================================================================================
+
         // Mobile Menu Toggle
         const btn = document.getElementById('mobile-menu-btn');
         const menu = document.getElementById('mobile-menu');
@@ -876,7 +908,6 @@
             menu.classList.toggle('hidden');
         });
 
-        // Close mobile menu when clicking a link
         const mobileLinks = menu.querySelectorAll('a');
         mobileLinks.forEach(link => {
             link.addEventListener('click', () => {
@@ -896,17 +927,17 @@
             }
         });
 
-        // Modal Logic (Simulating application flow)
+        // Modal Elements
         const modal = document.getElementById('action-modal');
         const modalContent = document.getElementById('modal-content');
         const modalTitle = document.getElementById('modal-title');
         const modalDesc = document.getElementById('modal-desc');
         const modalIcon = document.getElementById('modal-icon');
+        const continueBtn = document.getElementById('continue-btn');
 
         function openModalUi() {
             modal.classList.remove('hidden');
             modal.classList.add('flex');
-            // small delay to allow display flex to apply before opacity transition
             setTimeout(() => {
                 modal.classList.remove('opacity-0');
                 modalContent.classList.remove('scale-95');
@@ -921,75 +952,85 @@
             setTimeout(() => {
                 modal.classList.add('hidden');
                 modal.classList.remove('flex');
+                
+                // Reset button handler
+                continueBtn.onclick = null; 
             }, 300);
         }
 
-        // Close modal when clicking outside
         modal.addEventListener('click', (e) => {
             if (e.target === modal) {
                 closeModal();
             }
         });
 
-        // 1. ADD YOUR UNIQUE GROUP LINKS HERE
-        const stateLinks = {
-            'Akure': 'https://chat.whatsapp.com/CG3ZJ6TPXW1AqMMsSbcQ7X',
-            'Abeokuta': 'https://chat.whatsapp.com/KGHfCXgwVIkBaZrisz6Gga',
-            'Osogbo': 'https://chat.whatsapp.com/JdtbTjxvRnu7Mr5AWZuqHp',
-            'Ekiti': 'https://chat.whatsapp.com/E0YQkcH157FHsqtiMS9WBD',
-            'Ilorin': 'https://chat.whatsapp.com/KGHfCXgwVIkBaZrisz6Gga',
-            'Ibadan': 'https://chat.whatsapp.com/Ic4e0PnVywKIdmGTmFURkV',
-            'Lagos': 'https://chat.whatsapp.com/HhoahyvBx8s22Adj883NOz',
-            
-            // Keep adding states identically like the on above: 'StateName': 'Link',
-        };
+        // =====================================================================================
+        // ACTION TRIGGERS
+        // =====================================================================================
 
-        // Actions triggered by buttons
+        // 1. Join Group Logic
         function joinGroup(stateName) {
             modalIcon.innerHTML = '<i class="fa-brands fa-whatsapp"></i>';
             modalIcon.className = "w-16 h-16 bg-green-100 text-green-600 rounded-full flex items-center justify-center text-3xl mx-auto mb-4";
             modalTitle.innerText = `Join ${stateName} Marketplace`;
             modalDesc.innerText = `You are about to be redirected to the verified WhatsApp group for the ${stateName} business community.`;
             
-            // 2. THIS MAKES THE BUTTON OPEN THE CORRECT LINK
-            const continueBtn = document.getElementById('continue-btn');
+            continueBtn.innerText = "Continue to Group"; 
+
             continueBtn.onclick = function() {
-                // Find the link in our list above, fallback to '#' if not found
-                const link = stateLinks[stateName] || '#'; 
+                const link = globalLinks.states[stateName] || '#'; 
                 if(link !== '#') {
-                    window.open(link, '_blank'); // Opens in a new tab
+                    window.open(link, '_blank'); 
                 } else {
                     alert("Link for " + stateName + " is coming soon!");
+                }
+                closeModal();
+            };
+            openModalUi();
+        }
+
+        // 2. Contact Vendor Logic
+        function contactVendor(vendorName) {
+            modalIcon.innerHTML = '<i class="fa-solid fa-store"></i>';
+            modalIcon.className = "w-16 h-16 bg-blue-100 text-blue-600 rounded-full flex items-center justify-center text-3xl mx-auto mb-4";
+            modalTitle.innerText = `Contact ${vendorName}`;
+            modalDesc.innerText = `Send a direct message to this seller securely via WhatsApp to negotiate or make a purchase.`;
+            
+            continueBtn.innerText = "Message Seller on WhatsApp"; 
+
+            continueBtn.onclick = function() {
+                const link = globalLinks.vendors[vendorName] || '#'; 
+                if(link !== '#') {
+                    window.open(link, '_blank'); 
+                } else {
+                    alert("Link for this vendor is coming soon!");
+                }
+                closeModal();
+            };
+            openModalUi();
+        }
+
+        // 3. Submit Business Listing Logic
+        function showModal(type) {
+            modalIcon.innerHTML = '<i class="fa-solid fa-list-check"></i>';
+            modalIcon.className = "w-16 h-16 bg-primary-100 text-primary-600 rounded-full flex items-center justify-center text-3xl mx-auto mb-4";
+            modalTitle.innerText = "Submit Business Listing";
+            modalDesc.innerText = "Submit your business to get listed across our community groups and reach active customers in your state.";
+            
+            continueBtn.innerText = "Submit Listing via WhatsApp"; 
+
+            continueBtn.onclick = function() {
+                const link = globalLinks.admin['submit'] || '#'; 
+                if(link !== '#') {
+                    window.open(link, '_blank'); 
+                } else {
+                    alert("Submission link is coming soon!");
                 }
                 closeModal();
             };
 
             openModalUi();
         }
-
-        function contactVendor(vendorName) {
-            modalIcon.innerHTML = '<i class="fa-solid fa-store"></i>';
-            modalIcon.className = "w-16 h-16 bg-blue-100 text-blue-600 rounded-full flex items-center justify-center text-3xl mx-auto mb-4";
-            modalTitle.innerText = `Contact ${vendorName}`;
-            modalDesc.innerText = `Send a direct message to this seller securely via WhatsApp to negotiate or make a purchase.`;
-            openModalUi();
-        }
-
-        function showModal(type) {
-            if (type === 'advertise') {
-                modalIcon.innerHTML = '<i class="fa-solid fa-bullhorn"></i>';
-                modalIcon.className = "w-16 h-16 bg-orange-100 text-orange-600 rounded-full flex items-center justify-center text-3xl mx-auto mb-4";
-                modalTitle.innerText = "Advertise Your Business";
-                modalDesc.innerText = "Get premium placement in our groups. A representative will contact you to discuss packages.";
-            } else if (type === 'submit') {
-                modalIcon.innerHTML = '<i class="fa-solid fa-list-check"></i>';
-                modalIcon.className = "w-16 h-16 bg-primary-100 text-primary-600 rounded-full flex items-center justify-center text-3xl mx-auto mb-4";
-                modalTitle.innerText = "Submit Business Listing";
-                modalDesc.innerText = "Add your business to our local directory to be discovered by buyers in your zone.";
-            }
-            openModalUi();
-        }
     </script>
 </body>
 </html>
-
