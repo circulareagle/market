@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en" class="scroll-smooth">
 <head>
@@ -84,13 +85,12 @@
                 </div>
                 
                 <!-- Desktop Menu -->
-                <div class="hidden lg:flex items-center space-x-8">
-                    <a href="#" class="text-gray-600 hover:text-primary-600 font-medium transition-colors">Home</a>
-                    <a href="#zones" class="text-gray-600 hover:text-primary-600 font-medium transition-colors">Marketplace Zones</a>
-                    <a href="#categories" class="text-gray-600 hover:text-primary-600 font-medium transition-colors">Categories</a>
-                    <a href="#featured" class="text-gray-600 hover:text-primary-600 font-medium transition-colors">Businesses</a>
-                    <a href="#promo" class="text-gray-600 hover:text-primary-600 font-medium transition-colors">Submit Listing</a>
-                    <button onclick="showModal('submit')" class="bg-primary-600 hover:bg-primary-700 text-white px-5 py-2.5 rounded-full font-medium transition-all shadow-md shadow-primary-600/20 transform hover:-translate-y-0.5">Submit Listing</button>
+                <div class="hidden lg:flex items-center space-x-6 xl:space-x-8">
+                    <a href="#" class="text-gray-600 hover:text-primary-600 font-medium transition-colors text-sm xl:text-base">Home</a>
+                    <a href="#zones" class="text-gray-600 hover:text-primary-600 font-medium transition-colors text-sm xl:text-base">Zones</a>
+                    <a href="#declutter" class="text-gray-600 hover:text-primary-600 font-medium transition-colors text-sm xl:text-base">Declutter</a>
+                    <a href="#featured" class="text-gray-600 hover:text-primary-600 font-medium transition-colors text-sm xl:text-base">Vendors</a>
+                    <button onclick="showModal('submit')" class="bg-primary-600 hover:bg-primary-700 text-white px-5 py-2.5 rounded-full font-medium transition-all shadow-md shadow-primary-600/20 transform hover:-translate-y-0.5 text-sm xl:text-base">Submit Listing</button>
                 </div>
 
                 <!-- Mobile menu button -->
@@ -107,9 +107,8 @@
             <div class="px-4 pt-2 pb-6 space-y-1">
                 <a href="#" class="block px-3 py-3 rounded-md text-base font-medium text-gray-700 hover:text-primary-600 hover:bg-primary-50">Home</a>
                 <a href="#zones" class="block px-3 py-3 rounded-md text-base font-medium text-gray-700 hover:text-primary-600 hover:bg-primary-50">Marketplace Zones</a>
-                <a href="#categories" class="block px-3 py-3 rounded-md text-base font-medium text-gray-700 hover:text-primary-600 hover:bg-primary-50">Categories</a>
-                <a href="#featured" class="block px-3 py-3 rounded-md text-base font-medium text-gray-700 hover:text-primary-600 hover:bg-primary-50">Businesses</a>
-                <a href="#promo" class="block px-3 py-3 rounded-md text-base font-medium text-gray-700 hover:text-primary-600 hover:bg-primary-50">Submit Listing</a>
+                <a href="#declutter" class="block px-3 py-3 rounded-md text-base font-medium text-gray-700 hover:text-primary-600 hover:bg-primary-50">Declutter Channel</a>
+                <a href="#featured" class="block px-3 py-3 rounded-md text-base font-medium text-gray-700 hover:text-primary-600 hover:bg-primary-50">Featured Vendors</a>
                 <div class="mt-4 px-3">
                     <button onclick="showModal('submit'); document.getElementById('mobile-menu').classList.add('hidden');" class="block w-full text-center bg-primary-600 hover:bg-primary-700 text-white px-5 py-3 rounded-lg font-medium shadow-md">Submit Listing</button>
                 </div>
@@ -142,16 +141,27 @@
                     <p class="text-lg sm:text-xl text-gray-600 mb-8 max-w-2xl mx-auto lg:mx-0">
                         Join organized WhatsApp and Telegram marketplace communities connecting buyers, sellers, businesses, and customers exclusively by location.
                     </p>
-                    <div class="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
-                        <a href="#zones" class="inline-flex justify-center items-center gap-2 bg-primary-600 hover:bg-primary-700 text-white px-8 py-3.5 rounded-full font-semibold text-lg transition-all shadow-lg shadow-primary-600/30 transform hover:-translate-y-1">
+                    
+                    <!-- COMPREHENSIVE CALL TO ACTION SET -->
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 lg:max-w-lg mx-auto lg:mx-0">
+                        <a href="#zones" class="flex justify-center items-center gap-2 bg-primary-600 hover:bg-primary-700 text-white px-6 py-3.5 rounded-xl font-semibold text-base transition-all shadow-lg shadow-primary-600/30 transform hover:-translate-y-0.5">
+                            <i class="fa-brands fa-whatsapp text-lg"></i>
                             Join Marketplace
-                            <i class="fa-solid fa-arrow-right"></i>
                         </a>
-                        <button onclick="showModal('submit')" class="inline-flex justify-center items-center gap-2 bg-white hover:bg-gray-50 text-dark border-2 border-gray-200 px-8 py-3.5 rounded-full font-semibold text-lg transition-all hover:border-gray-300">
+                        <button onclick="showModal('submit')" class="flex justify-center items-center gap-2 bg-dark hover:bg-gray-800 text-white px-6 py-3.5 rounded-xl font-semibold text-base transition-all shadow-lg transform hover:-translate-y-0.5">
+                            <i class="fa-solid fa-list-check text-lg"></i>
                             Submit Listing
-                            <i class="fa-solid fa-store"></i>
                         </button>
+                        <a href="#featured" class="flex justify-center items-center gap-2 bg-white hover:bg-gray-50 text-dark border-2 border-gray-200 px-6 py-3 rounded-xl font-semibold text-sm transition-all hover:border-gray-300">
+                            <i class="fa-solid fa-store text-primary-600"></i>
+                            Contact Vendors
+                        </a>
+                        <a href="#declutter" class="flex justify-center items-center gap-2 bg-blue-50 hover:bg-blue-100 text-blue-800 border-2 border-blue-100 px-6 py-3 rounded-xl font-semibold text-sm transition-all hover:border-blue-200">
+                            <i class="fa-solid fa-box-open text-blue-600"></i>
+                            Declutter Channel
+                        </a>
                     </div>
+
                     <div class="mt-8 flex items-center justify-center lg:justify-start gap-4 text-sm text-gray-500">
                         <div class="flex -space-x-2">
                             <img class="w-8 h-8 rounded-full border-2 border-white" src="https://i.pravatar.cc/100?img=1" alt="User">
@@ -264,54 +274,6 @@
                     </div>
                     <h3 class="text-xl font-bold text-dark mb-2">Submit Listing</h3>
                     <p class="text-gray-600 text-sm">Submit your business listing to gain direct exposure to buyers in your state.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- WHY JOIN SECTION -->
-    <section class="py-20 bg-white" id="why-join">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center mb-16">
-                <h2 class="text-3xl lg:text-4xl font-bold text-dark mb-4">Why Join CommunityHub Marketplace?</h2>
-                <div class="w-24 h-1.5 bg-primary-500 mx-auto rounded-full"></div>
-            </div>
-
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-                <!-- Card 1 -->
-                <div class="p-8 rounded-2xl bg-gray-50 border border-gray-100 hover-lift text-center sm:text-left transition-colors hover:border-primary-200">
-                    <div class="w-14 h-14 bg-white rounded-xl shadow-sm flex items-center justify-center text-primary-600 text-2xl mb-6 mx-auto sm:mx-0">
-                        <i class="fa-solid fa-location-dot"></i>
-                    </div>
-                    <h3 class="text-xl font-bold text-dark mb-3">Local Marketplace</h3>
-                    <p class="text-gray-600 leading-relaxed text-sm">Find products, services, and trusted vendors right in your state and city.</p>
-                </div>
-
-                <!-- Card 2 -->
-                <div class="p-8 rounded-2xl bg-gray-50 border border-gray-100 hover-lift text-center sm:text-left transition-colors hover:border-primary-200">
-                    <div class="w-14 h-14 bg-white rounded-xl shadow-sm flex items-center justify-center text-blue-600 text-2xl mb-6 mx-auto sm:mx-0">
-                        <i class="fa-solid fa-chart-line"></i>
-                    </div>
-                    <h3 class="text-xl font-bold text-dark mb-3">Business Growth</h3>
-                    <p class="text-gray-600 leading-relaxed text-sm">Submit your listing to connect directly with targeted, localized customers ready to buy.</p>
-                </div>
-
-                <!-- Card 3 -->
-                <div class="p-8 rounded-2xl bg-gray-50 border border-gray-100 hover-lift text-center sm:text-left transition-colors hover:border-primary-200">
-                    <div class="w-14 h-14 bg-white rounded-xl shadow-sm flex items-center justify-center text-green-600 text-2xl mb-6 mx-auto sm:mx-0">
-                        <i class="fa-solid fa-shield-halved"></i>
-                    </div>
-                    <h3 class="text-xl font-bold text-dark mb-3">Trusted Communities</h3>
-                    <p class="text-gray-600 leading-relaxed text-sm">Join organized, well-moderated WhatsApp and Telegram marketplace groups.</p>
-                </div>
-
-                <!-- Card 4 -->
-                <div class="p-8 rounded-2xl bg-gray-50 border border-gray-100 hover-lift text-center sm:text-left transition-colors hover:border-primary-200">
-                    <div class="w-14 h-14 bg-white rounded-xl shadow-sm flex items-center justify-center text-orange-600 text-2xl mb-6 mx-auto sm:mx-0">
-                        <i class="fa-solid fa-lightbulb"></i>
-                    </div>
-                    <h3 class="text-xl font-bold text-dark mb-3">Opportunities</h3>
-                    <p class="text-gray-600 leading-relaxed text-sm">Discover local jobs, flash deals, real estate, and valuable partnerships.</p>
                 </div>
             </div>
         </div>
@@ -582,56 +544,34 @@
         </div>
     </section>
 
-    <!-- MARKETPLACE CATEGORIES -->
-    <section class="py-20 bg-white" id="categories">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex justify-between items-end mb-10">
-                <div>
-                    <h2 class="text-3xl font-bold text-dark mb-2">Buy and Sell Categories</h2>
-                    <p class="text-gray-600">Discover exactly what you're looking for in your local group.</p>
-                </div>
-            </div>
-
-            <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4">
-                <div class="bg-gray-50 border border-gray-100 hover:border-primary-300 rounded-xl p-6 text-center cursor-pointer hover-lift group">
-                    <i class="fa-solid fa-laptop text-3xl text-gray-400 group-hover:text-primary-600 mb-3 transition-colors"></i>
-                    <h4 class="font-semibold text-gray-800 text-sm">Electronics</h4>
-                </div>
-                <div class="bg-gray-50 border border-gray-100 hover:border-primary-300 rounded-xl p-6 text-center cursor-pointer hover-lift group">
-                    <i class="fa-solid fa-shirt text-3xl text-gray-400 group-hover:text-primary-600 mb-3 transition-colors"></i>
-                    <h4 class="font-semibold text-gray-800 text-sm">Fashion</h4>
-                </div>
-                <div class="bg-gray-50 border border-gray-100 hover:border-primary-300 rounded-xl p-6 text-center cursor-pointer hover-lift group">
-                    <i class="fa-solid fa-house-chimney text-3xl text-gray-400 group-hover:text-primary-600 mb-3 transition-colors"></i>
-                    <h4 class="font-semibold text-gray-800 text-sm">Real Estate</h4>
-                </div>
-                <div class="bg-gray-50 border border-gray-100 hover:border-primary-300 rounded-xl p-6 text-center cursor-pointer hover-lift group">
-                    <i class="fa-solid fa-car text-3xl text-gray-400 group-hover:text-primary-600 mb-3 transition-colors"></i>
-                    <h4 class="font-semibold text-gray-800 text-sm">Vehicles</h4>
-                </div>
-                <div class="bg-gray-50 border border-gray-100 hover:border-primary-300 rounded-xl p-6 text-center cursor-pointer hover-lift group">
-                    <i class="fa-solid fa-bowl-food text-3xl text-gray-400 group-hover:text-primary-600 mb-3 transition-colors"></i>
-                    <h4 class="font-semibold text-gray-800 text-sm">Food</h4>
-                </div>
-                <div class="bg-gray-50 border border-gray-100 hover:border-primary-300 rounded-xl p-6 text-center cursor-pointer hover-lift group">
-                    <i class="fa-solid fa-briefcase text-3xl text-gray-400 group-hover:text-primary-600 mb-3 transition-colors"></i>
-                    <h4 class="font-semibold text-gray-800 text-sm">Jobs</h4>
-                </div>
-                <div class="bg-gray-50 border border-gray-100 hover:border-primary-300 rounded-xl p-6 text-center cursor-pointer hover-lift group">
-                    <i class="fa-solid fa-screwdriver-wrench text-3xl text-gray-400 group-hover:text-primary-600 mb-3 transition-colors"></i>
-                    <h4 class="font-semibold text-gray-800 text-sm">Services</h4>
-                </div>
-                <div class="bg-gray-50 border border-gray-100 hover:border-primary-300 rounded-xl p-6 text-center cursor-pointer hover-lift group">
-                    <i class="fa-solid fa-tractor text-3xl text-gray-400 group-hover:text-primary-600 mb-3 transition-colors"></i>
-                    <h4 class="font-semibold text-gray-800 text-sm">Agriculture</h4>
-                </div>
-                <div class="bg-gray-50 border border-gray-100 hover:border-primary-300 rounded-xl p-6 text-center cursor-pointer hover-lift group">
-                    <i class="fa-solid fa-handshake text-3xl text-gray-400 group-hover:text-primary-600 mb-3 transition-colors"></i>
-                    <h4 class="font-semibold text-gray-800 text-sm">Opportunities</h4>
-                </div>
-                <div class="bg-gray-50 border border-gray-100 hover:border-primary-300 rounded-xl p-6 text-center cursor-pointer hover-lift group">
-                    <i class="fa-solid fa-graduation-cap text-3xl text-gray-400 group-hover:text-primary-600 mb-3 transition-colors"></i>
-                    <h4 class="font-semibold text-gray-800 text-sm">Education</h4>
+    <!-- NEW DECLUTTER CHANNEL SECTION -->
+    <section class="py-20 bg-primary-50" id="declutter">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="bg-white rounded-[2rem] p-8 md:p-12 shadow-sm border border-primary-100 text-center relative overflow-hidden">
+                <!-- Decorative background elements -->
+                <div class="absolute -top-12 -right-12 w-32 h-32 bg-primary-100 rounded-full opacity-50"></div>
+                <div class="absolute -bottom-12 -left-12 w-32 h-32 bg-blue-100 rounded-full opacity-50"></div>
+                
+                <div class="relative z-10">
+                    <div class="w-20 h-20 mx-auto bg-blue-50 text-blue-600 rounded-2xl flex items-center justify-center text-4xl mb-6 shadow-sm border border-blue-100">
+                        <i class="fa-solid fa-box-open"></i>
+                    </div>
+                    <h2 class="text-3xl lg:text-4xl font-bold text-dark mb-4">The Declutter Channel</h2>
+                    <p class="text-gray-600 max-w-xl mx-auto text-lg mb-10">
+                        Got items you no longer need? Or looking for affordable, fairly-used deals? Join our dedicated declutter communities to buy and sell pre-loved items quickly.
+                    </p>
+                    
+                    <div class="flex flex-col sm:flex-row gap-4 justify-center items-center">
+                        <button onclick="joinDeclutter('whatsapp')" class="w-full sm:w-auto flex items-center justify-center gap-3 bg-[#25D366] hover:bg-[#20b858] text-white px-8 py-4 rounded-xl font-bold text-lg transition-all shadow-lg shadow-green-500/30 transform hover:-translate-y-1">
+                            <i class="fa-brands fa-whatsapp text-2xl"></i>
+                            Join via WhatsApp
+                        </button>
+                        <button onclick="joinDeclutter('telegram')" class="w-full sm:w-auto flex items-center justify-center gap-3 bg-[#0088cc] hover:bg-[#007ab8] text-white px-8 py-4 rounded-xl font-bold text-lg transition-all shadow-lg shadow-blue-500/30 transform hover:-translate-y-1">
+                            <i class="fa-brands fa-telegram text-2xl"></i>
+                            Join via Telegram
+                        </button>
+                    </div>
+                    <p class="mt-6 text-sm text-gray-500">Active daily • Strict quality rules • Scam-free zone</p>
                 </div>
             </div>
         </div>
@@ -729,7 +669,7 @@
     </section>
 
     <!-- PROMOTION / SUBMIT LISTING SECTION -->
-    <section class="py-20" id="promo">
+    <section class="py-20 bg-white" id="promo">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="bg-primary-900 rounded-3xl overflow-hidden shadow-2xl relative">
                 <!-- Background decoration -->
@@ -744,7 +684,7 @@
                         </p>
                         <div class="flex flex-col sm:flex-row gap-4 justify-center md:justify-start">
                             <button onclick="showModal('submit')" class="bg-white text-primary-900 px-8 py-3.5 rounded-full font-bold text-lg hover:bg-gray-100 transition-colors shadow-lg">
-                                Submit Listing
+                                Submit Listing Now
                             </button>
                         </div>
                     </div>
@@ -760,18 +700,51 @@
         </div>
     </section>
 
-    <!-- FINAL CALL TO ACTION -->
-    <section class="py-24 bg-white text-center">
-        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="inline-flex items-center justify-center w-20 h-20 bg-green-100 rounded-full text-green-600 text-4xl mb-8 shadow-sm">
-                <i class="fa-brands fa-whatsapp"></i>
+    <!-- FINAL CALL TO ACTION (Comprehensive) -->
+    <section class="py-24 bg-gray-50 text-center border-t border-gray-200">
+        <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-3xl md:text-5xl font-extrabold text-dark mb-6">Ready to Start Trading?</h2>
+            <p class="text-xl text-gray-600 mb-12 max-w-2xl mx-auto">Choose an action below to connect with people right where you live. Stop searching everywhere else.</p>
+            
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+                <!-- Action 1 -->
+                <a href="#zones" class="bg-white border border-gray-200 hover:border-primary-500 rounded-2xl p-6 hover-lift flex flex-col items-center justify-center group">
+                    <div class="w-12 h-12 bg-primary-50 text-primary-600 rounded-full flex items-center justify-center text-xl mb-4 group-hover:bg-primary-600 group-hover:text-white transition-colors">
+                        <i class="fa-solid fa-map-location-dot"></i>
+                    </div>
+                    <span class="font-bold text-dark text-lg">Join Marketplace</span>
+                    <span class="text-sm text-gray-500 mt-1">Find your state group</span>
+                </a>
+                
+                <!-- Action 2 -->
+                <a href="#featured" class="bg-white border border-gray-200 hover:border-primary-500 rounded-2xl p-6 hover-lift flex flex-col items-center justify-center group">
+                    <div class="w-12 h-12 bg-blue-50 text-blue-600 rounded-full flex items-center justify-center text-xl mb-4 group-hover:bg-blue-600 group-hover:text-white transition-colors">
+                        <i class="fa-solid fa-store"></i>
+                    </div>
+                    <span class="font-bold text-dark text-lg">Contact Vendors</span>
+                    <span class="text-sm text-gray-500 mt-1">Browse trusted sellers</span>
+                </a>
+                
+                <!-- Action 3 -->
+                <button onclick="showModal('submit')" class="bg-white border border-gray-200 hover:border-primary-500 rounded-2xl p-6 hover-lift flex flex-col items-center justify-center group">
+                    <div class="w-12 h-12 bg-green-50 text-green-600 rounded-full flex items-center justify-center text-xl mb-4 group-hover:bg-green-600 group-hover:text-white transition-colors">
+                        <i class="fa-solid fa-list-check"></i>
+                    </div>
+                    <span class="font-bold text-dark text-lg">Submit Listing</span>
+                    <span class="text-sm text-gray-500 mt-1">Grow your business</span>
+                </button>
+                
+                <!-- Action 4 -->
+                <a href="#declutter" class="bg-white border border-gray-200 hover:border-primary-500 rounded-2xl p-6 hover-lift flex flex-col items-center justify-center group">
+                    <div class="w-12 h-12 bg-orange-50 text-orange-600 rounded-full flex items-center justify-center text-xl mb-4 group-hover:bg-orange-600 group-hover:text-white transition-colors">
+                        <i class="fa-solid fa-box-open"></i>
+                    </div>
+                    <span class="font-bold text-dark text-lg">Declutter Channel</span>
+                    <span class="text-sm text-gray-500 mt-1">Buy/Sell used items</span>
+                </a>
             </div>
-            <h2 class="text-4xl md:text-5xl font-extrabold text-dark mb-6">Join Your Local Marketplace Today</h2>
-            <p class="text-xl text-gray-600 mb-10 max-w-2xl mx-auto">Stop searching everywhere. Buy, sell, and connect with people right where you live.</p>
-            <a href="#zones" class="inline-flex justify-center items-center gap-2 bg-primary-600 hover:bg-primary-700 text-white px-10 py-4 rounded-full font-bold text-xl transition-all shadow-xl shadow-primary-600/30 transform hover:scale-105">
-                Join WhatsApp Marketplace
-            </a>
-            <p class="mt-6 text-sm text-gray-500 font-medium">Secure groups. Strict moderation.</p>
+            
+            <p class="mt-10 text-sm text-gray-500 font-medium">Secure groups • Strict moderation • Verified members</p>
         </div>
     </section>
 
@@ -803,7 +776,7 @@
                     <ul class="space-y-4">
                         <li><a href="#" class="text-gray-400 hover:text-primary-400 transition-colors text-sm">About Us</a></li>
                         <li><a href="#zones" class="text-gray-400 hover:text-primary-400 transition-colors text-sm">Marketplace Zones</a></li>
-                        <li><a href="#how-it-works" class="text-gray-400 hover:text-primary-400 transition-colors text-sm">How it Works</a></li>
+                        <li><a href="#declutter" class="text-gray-400 hover:text-primary-400 transition-colors text-sm">Declutter Channel</a></li>
                         <li><a href="#" class="text-gray-400 hover:text-primary-400 transition-colors text-sm">Contact Support</a></li>
                     </ul>
                 </div>
@@ -812,7 +785,8 @@
                 <div>
                     <h4 class="text-white font-bold mb-6 uppercase text-sm tracking-wider">For Business</h4>
                     <ul class="space-y-4">
-                        <li><a href="#promo" class="text-gray-400 hover:text-primary-400 transition-colors text-sm">Submit Listing</a></li>
+                        <li><button onclick="showModal('submit')" class="text-gray-400 hover:text-primary-400 transition-colors text-sm text-left">Submit Listing</button></li>
+                        <li><a href="#featured" class="text-gray-400 hover:text-primary-400 transition-colors text-sm">Featured Vendors</a></li>
                         <li><a href="#" class="text-gray-400 hover:text-primary-400 transition-colors text-sm">Success Stories</a></li>
                         <li><a href="#" class="text-gray-400 hover:text-primary-400 transition-colors text-sm">Partnerships</a></li>
                     </ul>
@@ -866,7 +840,6 @@
     <script>
         // =====================================================================================
         // LINK CONFIGURATION AREA - UPDATE YOUR LINKS HERE
-        // Provision for all links on the website allowing easy updates without diving into HTML.
         // =====================================================================================
         const globalLinks = {
             // 1. Group Links by State
@@ -889,7 +862,13 @@
                 'Oga Fresh Farms': 'https://wa.me/2340000000000'
             },
 
-            // 3. Admin / Service Links (Submit Listing)
+            // 3. Declutter Channel Links (New)
+            declutter: {
+                'whatsapp': 'https://chat.whatsapp.com/YOUR_DECLUTTER_LINK',
+                'telegram': 'https://t.me/YOUR_DECLUTTER_LINK'
+            },
+
+            // 4. Admin / Service Links (Submit Listing)
             admin: {
                 'submit': 'https://wa.me/2340000000000?text=I%20want%20to%20submit%20my%20business%20listing'
             }
@@ -953,7 +932,8 @@
                 modal.classList.add('hidden');
                 modal.classList.remove('flex');
                 
-                // Reset button handler
+                // Reset styling and handler
+                continueBtn.className = "w-full bg-primary-600 hover:bg-primary-700 text-white font-bold py-3 rounded-xl transition-colors mb-3 shadow-md shadow-primary-600/20";
                 continueBtn.onclick = null; 
             }, 300);
         }
@@ -1031,6 +1011,39 @@
 
             openModalUi();
         }
+
+        // 4. Join Declutter Channel Logic
+        function joinDeclutter(platform) {
+            if (platform === 'whatsapp') {
+                modalIcon.innerHTML = '<i class="fa-brands fa-whatsapp"></i>';
+                modalIcon.className = "w-16 h-16 bg-green-100 text-[#25D366] rounded-full flex items-center justify-center text-3xl mx-auto mb-4";
+                modalTitle.innerText = "Join WhatsApp Declutter";
+                continueBtn.className = "w-full bg-[#25D366] hover:bg-[#20b858] text-white font-bold py-3 rounded-xl transition-colors mb-3 shadow-md";
+                continueBtn.innerText = "Open WhatsApp";
+            } else {
+                modalIcon.innerHTML = '<i class="fa-brands fa-telegram"></i>';
+                modalIcon.className = "w-16 h-16 bg-blue-100 text-[#0088cc] rounded-full flex items-center justify-center text-3xl mx-auto mb-4";
+                modalTitle.innerText = "Join Telegram Declutter";
+                continueBtn.className = "w-full bg-[#0088cc] hover:bg-[#007ab8] text-white font-bold py-3 rounded-xl transition-colors mb-3 shadow-md";
+                continueBtn.innerText = "Open Telegram";
+            }
+            
+            modalDesc.innerText = "You are about to join the official CommunityHub Declutter group where you can buy and sell fairly used items.";
+            
+            continueBtn.onclick = function() {
+                const link = globalLinks.declutter[platform] || '#'; 
+                if(link !== '#' && link !== 'https://chat.whatsapp.com/YOUR_DECLUTTER_LINK' && link !== 'https://t.me/YOUR_DECLUTTER_LINK') {
+                    window.open(link, '_blank'); 
+                } else {
+                    alert("The " + platform + " declutter link is coming soon! Please update it in the configuration.");
+                }
+                closeModal();
+            };
+            openModalUi();
+        }
     </script>
 </body>
 </html>
+
+
+
